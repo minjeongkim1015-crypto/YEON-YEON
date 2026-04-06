@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YEON:YEON — 아무나 말고, 당신만을 위한 연</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=Pretendard:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#f7f5f2;
+      --surface:#ffffff;
+      --border:#e8e4de;
+      --border2:#d4cfc8;
+      --lime:#7dd600;
+      --lime-bg:#f0ffd4;
+      --pink:#ff3d7f;
+      --pink-bg:#fff0f5;
+      --ink:#111111;
+      --muted:#888;
+      --muted2:#bbb;
+      --text:#333;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);font-family:'Pretendard','Noto Sans KR',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased;letter-spacing:-0.01em;}
+    .w{max-width:1060px;margin:0 auto;padding:0 24px;}
+
+    /* NAV */
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 0;border-bottom:1px solid var(--border);
+      position:sticky;top:0;background:rgba(247,245,242,0.92);
+      backdrop-filter:blur(12px);z-index:100;
+    }
+    .logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--ink);}
+    .logo-dot{color:var(--lime);}
+    .nav-links{display:flex;gap:28px;}
+    .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;font-weight:500;letter-spacing:-0.01em;}
+    .nav-links a:hover{color:var(--ink);}
+    .nav-btn{
+      background:var(--ink);color:#fff;font-size:12px;font-weight:700;
+      padding:9px 20px;border-radius:4px;text-decoration:none;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;transition:opacity .2s;
+    }
+    .nav-btn:hover{opacity:.92;transform:translateY(-1px);box-shadow:0 12px 28px rgba(17,17,17,0.14);}
+
+    /* HERO */
+    .hero{
+      padding:76px 0 56px;display:grid;
+      grid-template-columns:1fr 1fr;gap:0;align-items:center;
+    }
+    .hero-left{padding-right:56px;border-right:1px solid var(--border);}
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--lime-bg);border:1px solid #c6f07a;
+      padding:6px 14px;border-radius:2px;font-size:11px;color:#4a8a00;
+      letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;font-weight:700;
+    }
+    .live-dot{
+      width:6px;height:6px;border-radius:50%;background:var(--lime);
+      animation:blink 1.5s infinite;flex-shrink:0;
+    }
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+    .hero h1{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(52px,7.5vw,90px);line-height:0.92;
+      letter-spacing:2px;color:var(--ink);margin-bottom:24px;
+    }
+    .hl{color:var(--lime);}
+    .hp{color:var(--pink);}
+    .hero-desc{
+      font-size:15px;color:var(--muted);line-height:1.95;
+      font-weight:400;max-width:360px;margin-bottom:36px;letter-spacing:-0.015em;
+    }
+    .hero-btns{display:flex;gap:12px;align-items:center;}
+    .btn-primary{
+      background:var(--ink);color:#fff;font-size:13px;font-weight:700;
+      padding:12px 28px;border-radius:4px;text-decoration:none;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;transition:opacity .2s;
+    }
+    .btn-primary:hover{opacity:.94;transform:translateY(-1px);box-shadow:0 14px 30px rgba(17,17,17,0.16);}
+    .btn-outline{
+      border:1px solid var(--border2);color:var(--muted);font-size:13px;font-weight:500;
+      padding:12px 24px;border-radius:4px;text-decoration:none;letter-spacing:-0.01em;
+      transition:border-color .25s ease,color .25s ease, background .25s ease, transform .2s ease;
+    }
+    .btn-outline:hover{border-color:var(--ink);color:var(--ink);background:rgba(255,255,255,0.7);transform:translateY(-1px);}
+    .hero-right{padding-left:56px;}
+    .ticker{display:flex;flex-direction:column;gap:10px;}
+    .tick-item{
+      display:flex;align-items:center;gap:14px;padding:14px 16px;
+      background:var(--surface);border:1px solid var(--border);border-radius:8px;
+      transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+    .tick-item:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.05);}
+    .tick-avatar{
+      width:36px;height:36px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:13px;font-weight:700;flex-shrink:0;
+    }
+    .tick-txt{flex:1;}
+    .tick-name{font-size:13px;color:var(--ink);font-weight:600;margin-bottom:2px;letter-spacing:-0.01em;}
+    .tick-sub{font-size:11px;color:var(--muted);line-height:1.5;letter-spacing:-0.01em;}
+    .tick-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:0.5px;}
+    .badge-new{background:var(--lime-bg);color:#3a7000;}
+    .badge-hot{background:var(--pink-bg);color:#cc2060;}
+
+    /* STATS */
+    .stats{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    }
+    .stat{padding:28px 24px;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--ink);letter-spacing:1px;margin-bottom:4px;}
+    .stat-n .sl{color:var(--lime);}
+    .stat-n .sp{color:var(--pink);}
+    .stat-l{font-size:12px;color:var(--muted);font-weight:400;letter-spacing:-0.01em;}
+
+    /* HOW */
+    .how-section{padding:60px 0;}
+    .sec-hd{display:flex;align-items:flex-end;justify-content:space-between;padding:52px 0 28px;}
+    .sec-ttl{font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:34px;color:var(--ink);letter-spacing:-0.03em;font-weight:700;}
+    .sec-ttl .sp{color:var(--pink);}
+    .sec-more{
+      font-size:12px;color:var(--muted);text-decoration:none;
+      border-bottom:1px solid var(--border2);padding-bottom:2px;transition:color .2s;
+    }
+    .sec-more:hover{color:var(--ink);}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:52px;}
+    .step{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:28px 24px;
+    }
+    .step-num{
+      font-family:'Bebas Neue',sans-serif;font-size:42px;
+      color:var(--lime-bg);margin-bottom:12px;line-height:1;
+      -webkit-text-stroke:1.5px var(--lime);
+    }
+    .step-name{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:-0.02em;}
+    .step-desc{font-size:14px;color:var(--muted);line-height:1.85;font-weight:400;letter-spacing:-0.015em;}
+
+    /* PROFILES */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px;}
+    .pcard{
+      position:relative;
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;overflow:hidden;transition:border-color .25s ease,transform .3s ease,box-shadow .3s ease;
+      transform-style:preserve-3d;
+    }
+    .pcard:hover{border-color:var(--border2);transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,0.08);}
+    .pcard::after{
+      content:'';position:absolute;top:0;left:-120%;width:70%;height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+      transform:skewX(-18deg);transition:left .7s ease;
+      pointer-events:none;
+    }
+    .pcard:hover::after{left:130%;}
+    .pcard-top{
+      aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;
+      position:relative;font-family:'Bebas Neue',sans-serif;font-size:72px;letter-spacing:3px;
+    }
+    .pcard-top-overlay{
+      position:absolute;inset:0;display:flex;
+      flex-direction:column;justify-content:space-between;padding:14px;
+    }
+    .pcard-chips{display:flex;gap:6px;}
+    .chip{font-size:10px;font-weight:700;padding:4px 10px;border-radius:2px;letter-spacing:0.5px;}
+    .chip-w{background:rgba(255,255,255,0.88);color:var(--ink);}
+    .chip-l{background:var(--lime-bg);color:#3a7000;border:1px solid #c6f07a;}
+    .chip-p{background:var(--pink-bg);color:#cc2060;border:1px solid #ffb3ce;}
+    .pcard-meta{text-align:left;}
+    .pcard-name-big{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);letter-spacing:1px;}
+    .pcard-age{font-size:12px;color:var(--muted);}
+    .pcard-body{padding:16px;}
+    .pcard-job{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:10px;letter-spacing:-0.01em;}
+    .pcard-intro{font-size:13px;color:var(--muted);line-height:1.8;font-weight:400;margin-bottom:14px;letter-spacing:-0.015em;}
+    .pcard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
+    .ptag{
+      font-size:10px;padding:3px 8px;border-radius:100px;
+      background:var(--bg);color:var(--muted);border:1px solid var(--border);
+    }
+    .pcard-footer{display:flex;gap:8px;}
+    .btn-match{
+      flex:1;background:var(--ink);color:#fff;font-size:12px;font-weight:700;
+      padding:10px;border-radius:6px;text-align:center;text-decoration:none;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;transition:opacity .2s;
+    }
+    .btn-match:hover{opacity:.8;}
+    .btn-save{
+      width:40px;height:40px;display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--border);border-radius:6px;text-decoration:none;
+      font-size:16px;color:var(--muted2);transition:border-color .2s,color .2s;cursor:pointer;
+      background:none;transition:border-color .25s ease,color .25s ease, transform .2s ease, background .25s ease;
+    }
+    .btn-save:hover{border-color:var(--pink);color:var(--pink);background:var(--pink-bg);transform:translateY(-1px) scale(1.03);}
+    .btn-save.saved{color:var(--pink);border-color:var(--pink);}
+
+    .match-hint,
+    .review-access-hint,
+    .review-empty{
+      background:var(--surface);border:1px dashed var(--border2);
+      border-radius:12px;padding:32px;text-align:center;font-size:14px;
+      color:var(--muted);line-height:1.95;letter-spacing:-0.015em;
+    }
+
+    .review-empty{
+      border-style:solid;
+      border-color:var(--border);
+      margin-bottom:24px;
+    }
+
+    /* TESTIMONIAL */
+    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:64px;}
+    .tcard{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:28px;transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .tcard-quote{font-size:15px;color:var(--text);line-height:1.9;font-weight:400;margin-bottom:20px;letter-spacing:-0.015em;}
+    .tcard-quote strong{color:var(--ink);font-weight:500;}
+    .tcard-author{display:flex;align-items:center;gap:12px;}
+    .tcard-avatar{
+      width:36px;height:36px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:12px;font-weight:700;
+    }
+    .tcard-name{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+    .tcard-meta{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:-0.01em;}
+    .heart-icon{color:var(--pink);font-size:14px;}
+    .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,0.06);border-color:var(--border2);}
+
+    /* CTA / FORM */
+    .cta-band{
+      background:var(--ink);border-radius:12px;padding:52px 60px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:40px;margin-bottom:64px;
+    }
+    .cta-tag{font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:14px;}
+    .cta-title{font-family:'Bebas Neue',sans-serif;font-size:44px;color:#fff;letter-spacing:2px;line-height:1;}
+    .cta-title .sp{color:var(--pink);}
+    .cta-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-top:12px;font-weight:400;line-height:1.8;letter-spacing:-0.01em;}
+    .form-mini{display:flex;flex-direction:column;gap:10px;width:290px;}
+    .form-mini input,.form-mini select{
+      width:100%;background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);border-radius:6px;
+      padding:11px 14px;font-size:13px;color:#fff;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;
+    }
+    .form-mini input:focus,.form-mini select:focus{border-color:var(--lime);box-shadow:0 0 0 4px rgba(125,214,0,0.12);background:rgba(255,255,255,0.10);}
+    .form-mini input::placeholder{color:rgba(255,255,255,0.3);}
+    .form-mini select option{background:#111;color:#fff;}
+    .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .submit-mini{
+      background:var(--lime);color:#111;border:none;border-radius:6px;
+      padding:12px;font-size:13px;font-weight:700;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;cursor:pointer;width:100%;transition:opacity .2s;
+    }
+    .submit-mini:hover{opacity:.93;transform:translateY(-1px);box-shadow:0 14px 34px rgba(125,214,0,0.24);}
+    .submit-mini:active{transform:scale(0.98);}
+
+    /* SUCCESS TOAST */
+    .toast{
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);
+      background:var(--ink);color:#fff;font-size:13px;font-weight:500;
+      padding:12px 24px;border-radius:8px;opacity:0;transition:all .3s;z-index:999;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;white-space:nowrap;letter-spacing:-0.01em;
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--border);padding:32px 0;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);letter-spacing:2px;}
+    .footer-logo .sl{color:var(--lime);}
+    .footer-links{display:flex;gap:20px;}
+    .footer-links a{font-size:11px;color:var(--muted);text-decoration:none;transition:color .2s;font-weight:500;letter-spacing:-0.01em;}
+    .footer-links a:hover{color:var(--ink);}
+    .footer-copy{font-size:11px;color:var(--muted);letter-spacing:-0.01em;}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    .fade-up{opacity:0;animation:fadeUp .6s ease forwards;}
+    .delay-1{animation-delay:.1s;}
+    .delay-2{animation-delay:.2s;}
+    .delay-3{animation-delay:.3s;}
+    .delay-4{animation-delay:.4s;}
+
+    /* MODAL */
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;
+      align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;
+      transition:opacity .3s,visibility .3s;
+    }
+    .modal.show{opacity:1;visibility:visible;}
+    .modal-content{
+      background:var(--surface);border-radius:12px;padding:32px;max-width:400px;width:90%;
+      box-shadow:0 20px 60px rgba(0,0,0,0.15);
+    }
+    .modal h3{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;text-align:center;}
+    .modal input{
+      width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;
+      font-size:14px;margin-bottom:16px;outline:none;
+    }
+    .modal .btn-primary{
+      background:var(--lime);color:#111;border:none;border-radius:6px;
+      padding:12px;font-size:14px;font-weight:700;width:100%;cursor:pointer;
+    }
+    .modal .btn-secondary{
+      background:none;border:1px solid var(--border);color:var(--muted);
+      padding:12px;font-size:14px;border-radius:6px;width:100%;cursor:pointer;margin-top:8px;
+    }
+
+
+    .hero-tag{box-shadow:0 8px 18px rgba(125,214,0,0.10);}
+    .sec-ttl,.cta-title,.logo,.footer-logo{will-change:transform;}
+    .step{transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;}
+    .step:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,0.06);border-color:var(--border2);}
+    .stat{transition:background .25s ease;}
+    .stat:hover{background:rgba(255,255,255,0.45);}
+    .cta-band{box-shadow:0 18px 46px rgba(17,17,17,0.14);}
+    .footer-links a{position:relative;}
+    .footer-links a::after{
+      content:'';position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:currentColor;
+      transform:scaleX(0);transform-origin:left;transition:transform .25s ease;opacity:.55;
+    }
+    .footer-links a:hover::after{transform:scaleX(1);}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr;}
+      .hero-left{padding-right:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:40px;margin-bottom:40px;}
+      .hero-right{padding-left:0;}
+      .stats{grid-template-columns:repeat(2,1fr);}
+      .stat:nth-child(2){border-right:none;}
+      .stat:nth-child(3){border-top:1px solid var(--border);}
+      .stat:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+      .steps{grid-template-columns:1fr;}
+      .cards{grid-template-columns:1fr;}
+      .testimonials{grid-template-columns:1fr;}
+      .cta-band{flex-direction:column;padding:40px 32px;}
+      .form-mini{width:100%;}
+      .nav-links{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="modal" id="adminModal">
+  <div class="modal-content">
+    <h3>관리자 로그인</h3>
+    <input type="password" id="adminPassword" placeholder="비밀번호 입력">
+    <button class="btn-primary" onclick="loginAdmin()">로그인</button>
+    <button class="btn-secondary" onclick="closeModal()">취소</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="w">
+  <nav>
+    <div class="logo">YEON<span class="logo-dot">:</span>YEON</div>
+    <div class="nav-links">
+      <a href="#profiles">서비스 소개</a>
+      <a href="#how">이용 안내</a>
+      <a href="#reviews">후기</a>
+      <a href="#" onclick="openAdminLogin()">관리자 로그인</a>
+    </div>
+    <a href="#apply" class="nav-btn">지금 시작하기</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="w">
+  <div class="hero">
+    <div class="hero-left fade-up">
+      <div class="hero-tag"><span class="live-dot"></span> 실시간 매칭중</div>
+      <h1><span class="hl">아무나</span><br>말고<br><span class="hp">당신</span>만을<br>위한 연</h1>
+      <p class="hero-desc">
+  검증된 인연만을 소개합니다.<br>
+  조건이 아닌, 사람을 봅니다.<br>
+  당신에게 맞는 단 한 사람을 연결합니다.
+</p>
+      <div class="hero-btns">
+        <a href="#profiles" class="btn-primary">서비스 소개</a>
+        <a href="#apply" class="btn-outline">프로필 등록</a>
+      </div>
+    </div>
+    <div class="hero-right fade-up delay-2">
+      <div class="ticker">
+        <div class="tick-item">
+          <div class="tick-avatar" style="background:var(--lime-bg);color:#3a7000;">익</div>
+          <div class="tick-txt">
+            <div class="tick-name">익명1 · 28 · 마케터</div>
+            <div class="tick-sub">서울 성수동 · 여행, 독서, 요리</div>
+          </div>
+          <span class="tick-badge badge-new">NEW</span>
+        </div>
+        <div class="tick-item">
+          <div class="tick-avatar" style="background:var(--pink-bg);color:#cc2060;">익</div>
+          <div class="tick-txt">
+            <div class="tick-name">익명2 · 31 · 개발자</div>
+            <div class="tick-sub">판교 · 등산, 영화, 기타</div>
+          </div>
+          <span class="tick-badge badge-hot">HOT</span>
+        </div>
+        <div class="tick-item">
+          <div class="tick-avatar" style="background:var(--lime-bg);color:#3a7000;">익</div>
+          <div class="tick-txt">
+            <div class="tick-name">익명3 · 29 · 디자이너</div>
+            <div class="tick-sub">마포구 · 전시, 필라테스, 식물</div>
+          </div>
+          <span class="tick-badge badge-new">NEW</span>
+        </div>
+        <div class="tick-item" style="border-style:dashed;">
+          <div class="tick-avatar" style="background:var(--bg);color:var(--muted2);">?</div>
+          <div class="tick-txt">
+            <div class="tick-name" style="color:var(--muted);">다음 주 공개 예정</div>
+            <div class="tick-sub">신청하면 먼저 알려드려요</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="w">
+  <div class="stats fade-up delay-3">
+    <div class="stat"><div class="stat-n" id="memberCount">6<span class="sl">명</span></div><div class="stat-l">현재 등록 회원</div></div>
+    <div class="stat"><div class="stat-n">100<span class="sl">%</span></div><div class="stat-l">신원 직접 확인</div></div>
+    <div class="stat"><div class="stat-n" id="matchCount">3<span class="sl">쌍</span></div><div class="stat-l">실제 만남 성사</div></div>
+    <div class="stat"><div class="stat-n">NO<span class="sp"> AI</span></div><div class="stat-l">사람이 직접 매칭</div></div>
+  </div>
+  <div id="adminMatchUpdate" style="display:none;text-align:center;margin-top:16px;">
+    <button onclick="incrementMatchCount()" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:10px 20px;font-size:13px;font-weight:700;">매칭 성공 +1</button>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="w" id="how">
+  <div class="sec-hd">
+    <div class="sec-ttl fade-up">이용 방법 안내<span class="sp">.</span></div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-name">프로필 등록</div>
+      <div class="step-desc">간단한 정보와 자기소개를 작성하면 검토 후 등록해 드려요. 모든 회원은 직접 검증합니다.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-name">프로필 탐색</div>
+      <div class="step-desc">우리팀이 직접 엄선한 프로필을 바탕으로, 가장 잘 맞는 분들과 매칭을 제안해 드립니다.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-name">큐레이터 연결</div>
+      <div class="step-desc">신청을 검토한 후 양측이 동의하면 연락처를 교환해 드립니다. 설레는 첫 만남을 응원해요.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILES -->
+<div class="w" id="profiles">
+  <div class="sec-hd">
+    <div>
+      <div class="sec-ttl fade-up">엄선된 인연 리스트<span class="sp">.</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:8px;">우리가 직접 선별한 분들만 보여드려요. 원하는 상대를 찾는 대신, 맞춤 매칭을 받아보세요.</div>
+    </div>
+  </div>
+
+  <!-- Add Card Form -->
+  <div class="add-card-form" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:32px;">
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">새 프로필 추가</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+      <input type="text" id="cardName" placeholder="이름" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="date" id="cardBirth" placeholder="생년월일" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <select id="cardGender" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <option value="">성별 선택</option>
+        <option value="남성">남성</option>
+        <option value="여성">여성</option>
+      </select>
+      <input type="text" id="cardJob" placeholder="직업" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="cardLocation" placeholder="지역" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="cardTags" placeholder="태그 (쉼표로 구분)" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="cardIntro" placeholder="소개" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;grid-column:1/-1;">
+      <select id="cardBadge" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <option value="">배지 선택</option>
+        <option value="NEW">NEW</option>
+        <option value="HOT">HOT</option>
+        <option value="">없음</option>
+      </select>
+    </div>
+    <button onclick="addCard()" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:12px 24px;font-size:13px;font-weight:700;margin-top:16px;cursor:pointer;">프로필 추가</button>
+  </div>
+
+  <div class="cards fade-up">
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="w" id="reviews">
+  <div class="sec-hd">
+    <div class="sec-ttl fade-up">실제 이용 후기<span class="sp">.</span></div>
+  </div>
+  <div class="testimonials fade-up">
+  </div>
+  <div class="review-access-hint"></div>
+
+  <!-- Review Form -->
+  <div class="review-form" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:32px;">
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">후기 작성</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+      <input type="text" id="reviewName" placeholder="이름" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="date" id="reviewBirth" placeholder="생년월일" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="reviewJob" placeholder="직업" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="reviewTime" placeholder="만난 기간 (예: 2개월 전 성사)" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <textarea id="reviewQuote" placeholder="후기 내용" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;grid-column:1/-1;resize:vertical;"></textarea>
+    </div>
+    <button onclick="submitReview()" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:12px 24px;font-size:13px;font-weight:700;margin-top:16px;cursor:pointer;">후기 제출</button>
+  </div>
+</div>
+
+<!-- APPLY FORM -->
+<div class="w" id="apply">
+  <div class="cta-band fade-up">
+    <div>
+      <div class="cta-tag fade-up">직접 신청하기</div>
+      <div class="cta-title">당신도<br><span class="sp">연결</span>될 수 있어요</div>
+      <div class="cta-sub">모든 정보는 비공개예요.<br>검토 후 24시간 내에 연락드려요.</div>
+    </div>
+    <div class="form-mini" id="applyForm">
+      <div class="form-row2">
+        <input type="text" id="fname" placeholder="이름">
+        <input type="date" id="fbirth" placeholder="생년월일">
+      </div>
+      <div class="form-row2">
+        <select id="fgender"><option value="">성별 선택</option><option>남성</option><option>여성</option></select>
+        <input type="text" id="fjob" placeholder="직업">
+      </div>
+      <input type="text" id="fcontact" placeholder="연락처 (카카오 ID 가능)">
+      <button class="submit-mini" onclick="submitForm()">신청하기 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="w">
+  <footer>
+    <div class="footer-logo">YEON<span class="sl">:</span>YEON</div>
+    <div class="footer-links">
+      <a href="#">개인정보처리방침</a>
+      <a href="#">이용약관</a>
+      <a href="#">인스타그램</a>
+    </div>
+    <div class="footer-copy">© 2026 YEON:YEON — 아무나 말고, 당신만을 위한 연.</div>
+  </footer>
+</div>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    getDoc,
+    deleteDoc,
+    setDoc
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUxI7p43u7eDh9z19XXMRUb-ZTsLAtRj8",
+    authDomain: "yeon-yeon.firebaseapp.com",
+    projectId: "yeon-yeon",
+    storageBucket: "yeon-yeon.firebasestorage.app",
+    messagingSenderId: "226229603529",
+    appId: "1:226229603529:web:a912737eb0846e9e831118",
+    measurementId: "G-D87HFKRP4Z"
+  };
+
+  function hasFirebaseConfig(config) {
+    return Object.values(config).every(Boolean);
+  }
+
+  if (hasFirebaseConfig(firebaseConfig)) {
+    try {
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+
+      window.firebaseServices = {
+        app,
+        db,
+        auth,
+        collection,
+        addDoc,
+        getDocs,
+        doc,
+        getDoc,
+        deleteDoc,
+        setDoc,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged
+      };
+
+      console.log("Firebase 연결 완료");
+    } catch (error) {
+      console.error("Firebase 초기화 실패:", error);
+      window.firebaseServices = null;
+    }
+  } else {
+    console.log("Firebase 설정값이 비어 있어 localStorage 모드로 실행됩니다.");
+    window.firebaseServices = null;
+  }
+
+  window.dispatchEvent(new CustomEvent("firebase-ready"));
+</script>
+
+<script>
+  // Initial approved cards data
+  const initialCards = [
+    { name: '익명1', age: 28, gender: '여성', job: '마케터', location: '서울 성수', tags: '여행,독서,요리,카페', intro: '주말엔 새로운 카페를 탐방해요. 소소한 일상에서 행복을 찾는 편이에요.', badge: 'NEW', bgColor: '#edffd4', textColor: '#c8ff0055' },
+    { name: '익명2', age: 31, gender: '남성', job: '개발자', location: '판교', tags: '등산,영화,기타,한강', intro: '주말엔 한강에서 자전거를 탑니다. 진지하고 따뜻한 관계를 원해요.', badge: 'HOT', bgColor: '#fff0f5', textColor: '#ff4d8d33' },
+    { name: '익명3', age: 29, gender: '여성', job: '디자너', location: '마포', tags: '전시,필라테스,식물,갤러리', intro: '미술관 투어를 즐겨요. 조용하고 깊은 대화를 나눌 수 있는 분을 찾아요.', badge: 'NEW', bgColor: '#672fd8', textColor: '#c4aaff44' },
+    { name: '익명4', age: 30, gender: '남성', job: '의사', location: '강남', tags: '독서,와인,테니스,여행', intro: '바쁜 일상 속에서도 진심으로 누군가를 알아가고 싶어요.', badge: 'NEW', bgColor: '#fff8e8', textColor: '#ffd97744' },
+    { name: '익명5', age: 27, gender: '여성', job: 'MD', location: '용산', tags: '패션,음악,카메라,러닝', intro: '좋아하는 게 많아요. 같이 새로운 걸 경험해 나갈 사람을 찾고 있어요.', badge: 'HOT', bgColor: '#f0f5ff', textColor: '#7eaaff33' },
+    { name: '익명6', age: 33, gender: '남성', job: '스타트업 대표', location: '성수', tags: '요리,캠핑,독서,커피', intro: '직접 요리해서 대접하는 걸 좋아해요. 소탈하고 편한 사람이에요.', badge: 'NEW', bgColor: '#f0faf5', textColor: '#70d6a044' }
+  ];
+
+  // Initial approved reviews data
+  const initialReviews = [];
+
+  function seedLocalData() {
+    if (!localStorage.getItem('approvedCards')) {
+      localStorage.setItem('approvedCards', JSON.stringify(initialCards));
+    }
+    if (!localStorage.getItem('approvedReviews')) {
+      localStorage.setItem('approvedReviews', JSON.stringify(initialReviews));
+    }
+    if (!localStorage.getItem('successfulMatches')) {
+      localStorage.setItem('successfulMatches', '3');
+    }
+  }
+
+  function getFirebaseServices() {
+    return window.firebaseServices || null;
+  }
+
+  function hasFirebaseAuth() {
+    return !!(getFirebaseServices() && getFirebaseServices().auth);
+  }
+
+  function syncAdminUI() {
+    const isAdmin = localStorage.getItem('adminLoggedIn') === 'true';
+    if (isAdmin) {
+      showAdminMode();
+    } else {
+      showUserMode();
+    }
+  }
+
+  function startFirebaseAuthWatcher() {
+    const services = getFirebaseServices();
+    if (!services || !services.auth) return;
+
+    services.onAuthStateChanged(services.auth, (user) => {
+      if (user) {
+        localStorage.setItem('adminLoggedIn', 'true');
+      } else {
+        localStorage.removeItem('adminLoggedIn');
+      }
+      syncAdminUI();
+    });
+  }
+
+  // Load cards on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    seedLocalData();
+    loadApprovedCards();
+    loadApprovedReviews();
+    updateStats();
+    syncAdminUI();
+    startFirebaseAuthWatcher();
+
+    // Apply observer to static fade-up elements
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px) scale(0.95)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+      // If already in viewport, trigger animation immediately
+      if (isElementInViewport(el)) {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) scale(1)';
+        }, 100); // Small delay to ensure transition
+      }
+    });
+  });
+
+  function hasMatchingAccess() {
+    return localStorage.getItem('adminLoggedIn') === 'true' || localStorage.getItem('matched') === 'true';
+  }
+
+  function isMatchedUser() {
+    return localStorage.getItem('matched') === 'true';
+  }
+
+  async function loadApprovedCards() {
+    const cardsContainer = document.querySelector('.cards');
+    cardsContainer.innerHTML = '';
+
+    if (!hasMatchingAccess()) {
+      cardsContainer.innerHTML = `
+        <div class="match-hint">
+          <p>우리가 직접 엄선한 매칭 프로필은</p>
+          <p>일반 페이지에서 바로 보이지 않아요.</p>
+          <p>신청하신 분에게 매칭이 확정된 뒤에</p>
+          <p>추천 프로필을 보여드립니다.</p>
+        </div>
+      `;
+      await updateStats();
+      return;
+    }
+
+    const services = getFirebaseServices();
+
+    if (services && services.db) {
+      try {
+        const snapshot = await services.getDocs(services.collection(services.db, 'approvedCards'));
+        const approvedCards = [];
+        snapshot.forEach((docSnap) => {
+          approvedCards.push({ id: docSnap.id, ...docSnap.data() });
+        });
+
+        approvedCards.sort((a, b) => (b.approvedAt || b.createdAt || 0) - (a.approvedAt || a.createdAt || 0));
+        localStorage.setItem('approvedCards', JSON.stringify(approvedCards));
+
+        approvedCards.forEach(card => renderCard(card, cardsContainer));
+      } catch (error) {
+        console.error(error);
+        showToast('승인 프로필을 불러오는 중 오류가 발생했어요.');
+      }
+    } else {
+      const approvedCards = JSON.parse(localStorage.getItem('approvedCards')) || [];
+      approvedCards.forEach(card => renderCard(card, cardsContainer));
+    }
+
+    cardsContainer.querySelectorAll('.pcard').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px) scale(0.95)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+      if (isElementInViewport(el)) {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) scale(1)';
+        }, 100);
+      }
+    });
+
+    await updateStats();
+  }
+
+  function loadApprovedReviews() {
+    const approvedReviews = JSON.parse(localStorage.getItem('approvedReviews')) || [];
+    const reviewsContainer = document.querySelector('.testimonials');
+    reviewsContainer.innerHTML = '';
+    if (approvedReviews.length === 0) {
+      reviewsContainer.innerHTML = '<div class="review-empty">등록된 후기가 없습니다. 매칭된 고객의 첫 후기를 기다리고 있어요.</div>';
+      return;
+    }
+    approvedReviews.forEach(review => renderReview(review, reviewsContainer));
+    // Apply observer to new reviews
+    reviewsContainer.querySelectorAll('.tcard').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px) scale(0.95)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+      // If already in viewport, trigger animation immediately
+      if (isElementInViewport(el)) {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) scale(1)';
+        }, 100);
+      }
+    });
+  }
+
+  function renderReview(review, container) {
+    const initials = review.name.substring(0, 1).toUpperCase();
+    const reviewHTML = `
+      <div class="tcard">
+        <div class="tcard-quote">${review.quote}</div>
+        <div class="tcard-author">
+          <div class="tcard-avatar" style="background:${review.bgColor};color:${review.textColor};">${initials}</div>
+          <div>
+            <div class="tcard-name">${review.name} 님</div>
+            <div class="tcard-meta">${review.age}세 · ${review.job} · ${review.time}</div>
+          </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', reviewHTML);
+  }
+
+  async function updateStats() {
+    let memberCount = 0;
+    const services = getFirebaseServices();
+
+    if (services && services.db) {
+      try {
+        const snapshot = await services.getDocs(services.collection(services.db, 'approvedCards'));
+        memberCount = snapshot.size;
+      } catch (error) {
+        console.error(error);
+        const approvedCards = JSON.parse(localStorage.getItem('approvedCards')) || [];
+        memberCount = approvedCards.length;
+      }
+    } else {
+      const approvedCards = JSON.parse(localStorage.getItem('approvedCards')) || [];
+      memberCount = approvedCards.length;
+    }
+
+    const memberCountElement = document.getElementById('memberCount');
+    memberCountElement.innerHTML = `${memberCount}<span class="sl">명</span>`;
+
+    const matchCount = parseInt(localStorage.getItem('successfulMatches')) || 3;
+    const matchCountElement = document.getElementById('matchCount');
+    matchCountElement.innerHTML = `${matchCount}<span class="sl">쌍</span>`;
+  }
+
+  function renderCard(card, container) {
+    const initials = card.name.substring(0, 2).toUpperCase();
+    const tagList = card.tags.split(',').map(tag => `<span class="ptag">${tag.trim()}</span>`).join('');
+    const badgeClass = card.badge === 'NEW' ? 'chip-l' : card.badge === 'HOT' ? 'chip-p' : '';
+    const cardHTML = `
+      <div class="pcard">
+        <div class="pcard-top" style="background:${card.bgColor};color:${card.textColor};">${initials}
+          <div class="pcard-top-overlay">
+            <div class="pcard-chips"><span class="chip chip-w">${card.gender}</span>${card.badge ? `<span class="chip ${badgeClass}">${card.badge}</span>` : ''}</div>
+            <div class="pcard-meta"><div class="pcard-name-big">${card.name}</div><div class="pcard-age">${card.age}세</div></div>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-job">${card.job} · ${card.location}</div>
+          <div class="pcard-tags">${tagList}</div>
+          <p class="pcard-intro">${card.intro}</p>
+          <div class="pcard-footer">
+            <a href="#apply" class="btn-match">연결 요청</a>
+            <button class="btn-save" onclick="toggleSave(this)">♡</button>
+          </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML('beforeend', cardHTML);
+  }
+
+  function showUserMode() {
+    document.querySelector('.add-card-form').style.display = 'none';
+    const reviewForm = document.querySelector('.review-form');
+    const reviewHint = document.querySelector('.review-access-hint');
+    if (isMatchedUser()) {
+      reviewForm.style.display = 'block';
+      reviewHint.innerHTML = '';
+    } else {
+      reviewForm.style.display = 'none';
+      reviewHint.innerHTML = '<div>매칭이 완료된 분만 후기를 남길 수 있습니다.<br>매칭 확정 후 이곳에서 작성해 주세요.</div>';
+    }
+    document.getElementById('adminMatchUpdate').style.display = 'none';
+    document.querySelector('.nav-links a:last-child').textContent = '관리자 로그인';
+    document.querySelector('.nav-links a:last-child').setAttribute('onclick', 'openAdminLogin()');
+  }
+
+  function showAdminMode() {
+    document.querySelector('.add-card-form').style.display = 'block';
+    document.querySelector('.review-form').style.display = 'none';
+    document.querySelector('.review-access-hint').innerHTML = '';
+    document.getElementById('adminMatchUpdate').style.display = 'block';
+    document.querySelector('.nav-links a:last-child').textContent = '관리자 로그아웃';
+    document.querySelector('.nav-links a:last-child').setAttribute('onclick', 'logoutAdmin()');
+    loadPendingCards();
+    loadPendingReviews();
+  }
+
+  async function loadPendingCards() {
+    const pendingContainer = document.querySelector('.pending-cards') || createPendingContainer();
+    pendingContainer.innerHTML = '<h3>대기 중인 프로필</h3>';
+
+    const services = getFirebaseServices();
+
+    if (services && services.db) {
+      const snapshot = await services.getDocs(services.collection(services.db, 'pendingCards'));
+      const docs = [];
+      snapshot.forEach((docSnap) => {
+        docs.push({ id: docSnap.id, ...docSnap.data() });
+      });
+
+      docs.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+      if (docs.length === 0) {
+        pendingContainer.innerHTML += '<p>대기 중인 프로필이 없습니다.</p>';
+        return;
+      }
+
+      docs.forEach((card) => {
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'pending-card';
+        cardDiv.innerHTML = `
+          <div class="pcard">
+            <div class="pcard-top" style="background:${card.bgColor};color:${card.textColor};">${card.name.substring(0, 2).toUpperCase()}
+              <div class="pcard-top-overlay">
+                <div class="pcard-chips"><span class="chip chip-w">${card.gender}</span>${card.badge ? `<span class="chip ${card.badge === 'NEW' ? 'chip-l' : 'chip-p'}">${card.badge}</span>` : ''}</div>
+                <div class="pcard-meta"><div class="pcard-name-big">${card.name}</div><div class="pcard-age">${card.age}세</div></div>
+              </div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-job">${card.job} · ${card.location}</div>
+              <div class="pcard-tags">${card.tags.split(',').map(tag => `<span class="ptag">${tag.trim()}</span>`).join('')}</div>
+              <p class="pcard-intro">${card.intro}</p>
+              <div class="pcard-footer">
+                <button onclick="approveCard('${card.id}')" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:10px 20px;font-size:12px;font-weight:700;">승인</button>
+                <button onclick="rejectCard('${card.id}')" style="background:#ff3d7f;color:#fff;border:none;border-radius:6px;padding:10px 20px;font-size:12px;font-weight:700;">거부</button>
+              </div>
+            </div>
+          </div>
+        `;
+        pendingContainer.appendChild(cardDiv);
+      });
+      return;
+    }
+
+    const pendingCards = JSON.parse(localStorage.getItem('pendingCards')) || [];
+    if (pendingCards.length === 0) {
+      pendingContainer.innerHTML += '<p>대기 중인 프로필이 없습니다.</p>';
+      return;
+    }
+    pendingCards.forEach((card, index) => {
+      const cardDiv = document.createElement('div');
+      cardDiv.className = 'pending-card';
+      cardDiv.innerHTML = `
+        <div class="pcard">
+          <div class="pcard-top" style="background:${card.bgColor};color:${card.textColor};">${card.name.substring(0, 2).toUpperCase()}
+            <div class="pcard-top-overlay">
+              <div class="pcard-chips"><span class="chip chip-w">${card.gender}</span>${card.badge ? `<span class="chip ${card.badge === 'NEW' ? 'chip-l' : 'chip-p'}">${card.badge}</span>` : ''}</div>
+              <div class="pcard-meta"><div class="pcard-name-big">${card.name}</div><div class="pcard-age">${card.age}세</div></div>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-job">${card.job} · ${card.location}</div>
+            <div class="pcard-tags">${card.tags.split(',').map(tag => `<span class="ptag">${tag.trim()}</span>`).join('')}</div>
+            <p class="pcard-intro">${card.intro}</p>
+            <div class="pcard-footer">
+              <button onclick="approveCard(${index})" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:10px 20px;font-size:12px;font-weight:700;">승인</button>
+              <button onclick="rejectCard(${index})" style="background:#ff3d7f;color:#fff;border:none;border-radius:6px;padding:10px 20px;font-size:12px;font-weight:700;">거부</button>
+            </div>
+          </div>
+        </div>
+      `;
+      pendingContainer.appendChild(cardDiv);
+    });
+  }
+
+  function createPendingContainer() {
+    const container = document.createElement('div');
+    container.className = 'pending-cards';
+    container.style.cssText = 'background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:32px;';
+    document.querySelector('.sec-hd').insertAdjacentElement('afterend', container);
+    return container;
+  }
+
+  async function approveCard(identifier) {
+    const services = getFirebaseServices();
+
+    if (services && services.db) {
+      try {
+        const pendingRef = services.doc(services.db, 'pendingCards', identifier);
+        const snap = await services.getDoc(pendingRef);
+
+        if (!snap.exists()) {
+          showToast('대기 중인 프로필을 찾지 못했어요.');
+          return;
+        }
+
+        const card = snap.data();
+        const approvedCard = {
+          ...card,
+          approvedAt: Date.now()
+        };
+
+        await services.setDoc(services.doc(services.db, 'approvedCards', identifier), approvedCard);
+        await services.deleteDoc(pendingRef);
+
+        await loadApprovedCards();
+        await loadPendingCards();
+        showToast('프로필이 승인되었습니다!');
+      } catch (error) {
+        console.error(error);
+        showToast('프로필 승인 중 오류가 발생했어요.');
+      }
+      return;
+    }
+
+    const pendingCards = JSON.parse(localStorage.getItem('pendingCards')) || [];
+    const approvedCards = JSON.parse(localStorage.getItem('approvedCards')) || [];
+    const card = pendingCards.splice(identifier, 1)[0];
+    approvedCards.unshift(card);
+    localStorage.setItem('pendingCards', JSON.stringify(pendingCards));
+    localStorage.setItem('approvedCards', JSON.stringify(approvedCards));
+    loadApprovedCards();
+    loadPendingCards();
+    showToast('프로필이 승인되었습니다!');
+  }
+
+  async function rejectCard(identifier) {
+    const services = getFirebaseServices();
+
+    if (services && services.db) {
+      try {
+        await services.deleteDoc(services.doc(services.db, 'pendingCards', identifier));
+        loadPendingCards();
+        showToast('프로필이 거부되었습니다.');
+      } catch (error) {
+        console.error(error);
+        showToast('프로필 거부 중 오류가 발생했어요.');
+      }
+      return;
+    }
+
+    const pendingCards = JSON.parse(localStorage.getItem('pendingCards')) || [];
+    pendingCards.splice(identifier, 1);
+    localStorage.setItem('pendingCards', JSON.stringify(pendingCards));
+    loadPendingCards();
+    showToast('프로필이 거부되었습니다.');
+  }
+
+  function loadPendingReviews() {
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+    const pendingReviewsContainer = document.querySelector('.pending-reviews') || createPendingReviewsContainer();
+    pendingReviewsContainer.innerHTML = '<h3>대기 중인 후기</h3>';
+    if (pendingReviews.length === 0) {
+      pendingReviewsContainer.innerHTML += '<p>대기 중인 후기가 없습니다.</p>';
+      return;
+    }
+    pendingReviews.forEach((review, index) => {
+      const reviewDiv = document.createElement('div');
+      reviewDiv.className = 'pending-review';
+      reviewDiv.innerHTML = `
+        <div class="tcard">
+          <div class="tcard-quote">${review.quote}</div>
+          <div class="tcard-author">
+            <div class="tcard-avatar" style="background:${review.bgColor};color:${review.textColor};">${review.name.substring(0, 1).toUpperCase()}</div>
+            <div>
+              <div class="tcard-name">${review.name} 님</div>
+              <div class="tcard-meta">${review.age}세 · ${review.job} · ${review.time}</div>
+            </div>
+          </div>
+          <div class="pcard-footer" style="margin-top:16px;">
+            <button onclick="approveReview(${index})" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:10px 20px;font-size:12px;font-weight:700;">승인</button>
+            <button onclick="rejectReview(${index})" style="background:#ff3d7f;color:#fff;border:none;border-radius:6px;padding:10px 20px;font-size:12px;font-weight:700;">거부</button>
+          </div>
+        </div>
+      `;
+      pendingReviewsContainer.appendChild(reviewDiv);
+    });
+  }
+
+  function createPendingReviewsContainer() {
+    const container = document.createElement('div');
+    container.className = 'pending-reviews';
+    container.style.cssText = 'background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:32px;';
+    const pendingCardsContainer = document.querySelector('.pending-cards');
+    if (pendingCardsContainer) {
+      pendingCardsContainer.insertAdjacentElement('afterend', container);
+    } else {
+      document.querySelector('.sec-hd').insertAdjacentElement('afterend', container);
+    }
+    return container;
+  }
+
+  function approveReview(index) {
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+    const approvedReviews = JSON.parse(localStorage.getItem('approvedReviews')) || [];
+    const review = pendingReviews.splice(index, 1)[0];
+    approvedReviews.push(review);
+    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+    localStorage.setItem('approvedReviews', JSON.stringify(approvedReviews));
+    loadApprovedReviews();
+    loadPendingReviews();
+    showToast('후기가 승인되었습니다!');
+  }
+
+  function rejectReview(index) {
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+    pendingReviews.splice(index, 1);
+    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+    loadPendingReviews();
+    showToast('후기가 거부되었습니다.');
+  }
+
+  function openAdminLogin() {
+    document.getElementById('adminModal').classList.add('show');
+  }
+
+  function closeModal() {
+    document.getElementById('adminModal').classList.remove('show');
+    document.getElementById('adminPassword').value = '';
+  }
+
+  async function loginAdmin() {
+    const password = document.getElementById('adminPassword').value;
+    const services = getFirebaseServices();
+
+    if (services && services.auth) {
+      try {
+        await services.signInWithEmailAndPassword(services.auth, 'admin@yeonyeon.com', password);
+        localStorage.setItem('adminLoggedIn', 'true');
+        closeModal();
+        syncAdminUI();
+        showToast('Firebase 관리자 로그인 완료!');
+      } catch (error) {
+        console.error(error);
+        showToast('Firebase 로그인 실패: 이메일/비밀번호를 확인해주세요.');
+      }
+      return;
+    }
+
+    if (password === 'admin1015!') {
+      localStorage.setItem('adminLoggedIn', 'true');
+      closeModal();
+      syncAdminUI();
+      showToast('관리자 모드로 전환되었습니다.');
+    } else {
+      showToast('비밀번호가 잘못되었습니다.');
+    }
+  }
+
+  async function logoutAdmin() {
+    const services = getFirebaseServices();
+
+    if (services && services.auth) {
+      try {
+        await services.signOut(services.auth);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    localStorage.removeItem('adminLoggedIn');
+    location.reload();
+  }
+
+  function submitReview() {
+    const name = document.getElementById('reviewName').value.trim();
+    const birthDateStr = document.getElementById('reviewBirth').value.trim();
+    const job = document.getElementById('reviewJob').value.trim();
+    const time = document.getElementById('reviewTime').value.trim();
+    const quote = document.getElementById('reviewQuote').value.trim();
+
+    if (!name || !birthDateStr || !job || !time || !quote) {
+      showToast('모든 필드를 입력해주세요!');
+      return;
+    }
+
+    // Calculate age from birth date
+    const birthDate = new Date(birthDateStr);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    // Random background color
+    const colors = ['#fff0f5', '#f0ffd4'];
+    const bgColor = colors[Math.floor(Math.random() * colors.length)];
+    const textColor = bgColor === '#fff0f5' ? '#cc2060' : '#3a7000';
+
+    const review = { name, age, birthDate: birthDateStr, job, time, quote, bgColor, textColor };
+
+    // Save to pending reviews
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews')) || [];
+    pendingReviews.push(review);
+    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+
+    // Clear form
+    document.getElementById('reviewName').value = '';
+    document.getElementById('reviewBirth').value = '';
+    document.getElementById('reviewJob').value = '';
+    document.getElementById('reviewTime').value = '';
+    document.getElementById('reviewQuote').value = '';
+
+    showToast('후기가 제출되었습니다! 관리자 승인 후 게시됩니다.');
+  }
+
+  function toggleSave(btn) {
+    btn.classList.toggle('saved');
+    btn.textContent = btn.classList.contains('saved') ? '♥' : '♡';
+    if (btn.classList.contains('saved')) showToast('관심 목록에 저장됐어요 ♥');
+  }
+
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const birthDate = document.getElementById('fbirth').value.trim();
+    const gender = document.getElementById('fgender').value;
+    const job = document.getElementById('fjob').value.trim();
+    const contact = document.getElementById('fcontact').value.trim();
+    if (!name || !birthDate || !gender || !contact) {
+      showToast('이름, 생년월일, 성별, 연락처는 필수예요!');
+      return;
+    }
+    showToast(`${name} 님, 신청 완료! 24시간 내 연락드릴게요 :)`);
+    document.getElementById('fname').value = '';
+    document.getElementById('fbirth').value = '';
+    document.getElementById('fgender').value = '';
+    document.getElementById('fjob').value = '';
+    document.getElementById('fcontact').value = '';
+  }
+
+  async function addCard() {
+    const name = document.getElementById('cardName').value.trim();
+    const birthDateStr = document.getElementById('cardBirth').value.trim();
+    const gender = document.getElementById('cardGender').value;
+    const job = document.getElementById('cardJob').value.trim();
+    const location = document.getElementById('cardLocation').value.trim();
+    const tags = document.getElementById('cardTags').value.trim();
+    const intro = document.getElementById('cardIntro').value.trim();
+    const badge = document.getElementById('cardBadge').value;
+
+    if (!name || !birthDateStr || !gender || !job || !location || !intro) {
+      showToast('모든 필드를 입력해주세요!');
+      return;
+    }
+
+    const birthDate = new Date(birthDateStr);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+
+    const colors = ['#edffd4', '#fff0f5', '#672fd8', '#fff8e8', '#f0f5ff', '#f0faf5'];
+    const bgColor = colors[Math.floor(Math.random() * colors.length)];
+    const textColor = bgColor === '#edffd4' ? '#c8ff0055' : bgColor === '#fff0f5' ? '#ff4d8d33' : bgColor === '#672fd8' ? '#c4aaff44' : bgColor === '#fff8e8' ? '#ffd97744' : bgColor === '#f0f5ff' ? '#7eaaff33' : '#70d6a044';
+
+    const card = { name, age, birthDate: birthDateStr, gender, job, location, tags, intro, badge, bgColor, textColor, createdAt: Date.now() };
+
+    const services = getFirebaseServices();
+
+    try {
+      if (services && services.db) {
+        await services.addDoc(services.collection(services.db, 'pendingCards'), card);
+      } else {
+        const pendingCards = JSON.parse(localStorage.getItem('pendingCards')) || [];
+        pendingCards.push(card);
+        localStorage.setItem('pendingCards', JSON.stringify(pendingCards));
+      }
+
+      document.getElementById('cardName').value = '';
+      document.getElementById('cardBirth').value = '';
+      document.getElementById('cardGender').value = '';
+      document.getElementById('cardJob').value = '';
+      document.getElementById('cardLocation').value = '';
+      document.getElementById('cardTags').value = '';
+      document.getElementById('cardIntro').value = '';
+      document.getElementById('cardBadge').value = '';
+
+      showToast('프로필이 대기 목록에 추가되었습니다!');
+      loadPendingCards();
+    } catch (error) {
+      console.error(error);
+      showToast('프로필 저장 중 오류가 발생했어요.');
+    }
+  }
+
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, index) => {
+      setTimeout(() => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0) scale(1)';
+        }
+      }, index * 150); // Stagger delay
+    });
+  }, { threshold: 0.1, rootMargin: '50px' });
+
+  // Helper function to check if element is in viewport
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  // Observer is applied in loadApprovedCards
+
+  function incrementMatchCount() {
+    const currentCount = parseInt(localStorage.getItem('successfulMatches')) || 3;
+    const newCount = currentCount + 1;
+    localStorage.setItem('successfulMatches', newCount.toString());
+    updateStats();
+    showToast(`매칭 성공 수를 ${newCount}쌍으로 업데이트했습니다!`);
+  }
+  // Micro interactions for cards
+  document.addEventListener('mousemove', (e) => {
+    document.querySelectorAll('.pcard').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= rect.bottom;
+
+      if (!inside || window.innerWidth < 769) return;
+
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const rx = ((e.clientY - cy) / rect.height) * -6;
+      const ry = ((e.clientX - cx) / rect.width) * 6;
+
+      card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+  });
+
+  document.querySelectorAll('.pcard').forEach(card => {
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  document.querySelectorAll('.btn-primary, .btn-outline, .submit-mini, .nav-btn').forEach(btn => {
+    btn.addEventListener('mousedown', () => {
+      btn.style.transform = 'translateY(0) scale(0.985)';
+    });
+    btn.addEventListener('mouseup', () => {
+      btn.style.transform = '';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+</script>
+</body>
+</html>
