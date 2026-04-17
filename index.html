@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YEON:YEON — 아무나 말고, 당신만을 위한 연</title>
+
+  <meta name="description" content="검증된 인연만을 소개합니다. 조건이 아닌, 사람을 봅니다. 당신에게 맞는 단 한 사람을 연결합니다.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="연:연">
+  <meta property="og:title" content="연:연 | 검증된 인연만을 소개합니다">
+  <meta property="og:description" content="조건이 아닌, 사람을 봅니다. 당신에게 맞는 단 한 사람을 연결합니다.">
+  <meta property="og:image" content="https://yeon-yeon.vercel.app/og-image-love.png">
+  <meta property="og:url" content="https://yeon-yeon.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="연:연 | 검증된 인연만을 소개합니다">
+  <meta name="twitter:description" content="조건이 아닌, 사람을 봅니다. 당신에게 맞는 단 한 사람을 연결합니다.">
+  <meta name="twitter:image" content="https://yeon-yeon.vercel.app/og-image-love.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&family=Pretendard:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#f7f5f2;
+      --surface:#ffffff;
+      --border:#e8e4de;
+      --border2:#d4cfc8;
+      --lime:#7dd600;
+      --lime-bg:#f0ffd4;
+      --pink:#ff3d7f;
+      --pink-bg:#fff0f5;
+      --ink:#111111;
+      --muted:#888;
+      --muted2:#bbb;
+      --text:#333;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);font-family:'Pretendard','Noto Sans KR',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased;letter-spacing:-0.01em;}
+    .w{max-width:1060px;margin:0 auto;padding:0 24px;}
+
+    /* NAV */
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:20px 0;border-bottom:1px solid var(--border);
+      position:sticky;top:0;background:rgba(247,245,242,0.92);
+      backdrop-filter:blur(12px);z-index:100;
+    }
+    .logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--ink);}
+    .logo-dot{color:var(--lime);}
+    .nav-links{display:flex;gap:28px;}
+    .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;font-weight:500;letter-spacing:-0.01em;}
+    .nav-links a:hover{color:var(--ink);}
+    .nav-btn{
+      background:var(--ink);color:#fff;font-size:12px;font-weight:700;
+      padding:9px 20px;border-radius:4px;text-decoration:none;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;transition:opacity .2s;
+    }
+    .nav-btn:hover{opacity:.92;transform:translateY(-1px);box-shadow:0 12px 28px rgba(17,17,17,0.14);}
+
+    /* HERO */
+    .hero{
+      padding:76px 0 56px;display:grid;
+      grid-template-columns:1fr 1fr;gap:0;align-items:center;
+    }
+    .hero-left{padding-right:56px;border-right:1px solid var(--border);}
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--lime-bg);border:1px solid #c6f07a;
+      padding:6px 14px;border-radius:2px;font-size:11px;color:#4a8a00;
+      letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;font-weight:700;
+    }
+    .live-dot{
+      width:6px;height:6px;border-radius:50%;background:var(--lime);
+      animation:blink 1.5s infinite;flex-shrink:0;
+    }
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+    .hero h1{
+      font-family:'Bebas Neue',sans-serif;
+      font-size:clamp(52px,7.5vw,90px);line-height:0.92;
+      letter-spacing:2px;color:var(--ink);margin-bottom:24px;
+    }
+    .hl{color:var(--lime);}
+    .hp{color:var(--pink);}
+    .hero-desc{
+      font-size:15px;color:var(--muted);line-height:1.95;
+      font-weight:400;max-width:360px;margin-bottom:36px;letter-spacing:-0.015em;
+    }
+    .hero-btns{display:flex;gap:12px;align-items:center;}
+    .btn-primary{
+      background:var(--ink);color:#fff;font-size:13px;font-weight:700;
+      padding:12px 28px;border-radius:4px;text-decoration:none;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;transition:opacity .2s;
+    }
+    .btn-primary:hover{opacity:.94;transform:translateY(-1px);box-shadow:0 14px 30px rgba(17,17,17,0.16);}
+    .btn-outline{
+      border:1px solid var(--border2);color:var(--muted);font-size:13px;font-weight:500;
+      padding:12px 24px;border-radius:4px;text-decoration:none;letter-spacing:-0.01em;
+      transition:border-color .25s ease,color .25s ease, background .25s ease, transform .2s ease;
+    }
+    .btn-outline:hover{border-color:var(--ink);color:var(--ink);background:rgba(255,255,255,0.7);transform:translateY(-1px);}
+    .hero-right{padding-left:56px;}
+    .ticker{display:flex;flex-direction:column;gap:10px;}
+    .tick-item{
+      display:flex;align-items:center;gap:14px;padding:14px 16px;
+      background:var(--surface);border:1px solid var(--border);border-radius:8px;
+      transition:border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+    .tick-item:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,0.05);}
+    .tick-avatar{
+      width:36px;height:36px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:13px;font-weight:700;flex-shrink:0;
+    }
+    .tick-txt{flex:1;}
+    .tick-name{font-size:13px;color:var(--ink);font-weight:600;margin-bottom:2px;letter-spacing:-0.01em;}
+    .tick-sub{font-size:11px;color:var(--muted);line-height:1.5;letter-spacing:-0.01em;}
+    .tick-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:0.5px;}
+    .badge-new{background:var(--lime-bg);color:#3a7000;}
+    .badge-hot{background:var(--pink-bg);color:#cc2060;}
+
+    /* STATS */
+    .stats{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    }
+    .stat{padding:28px 24px;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--ink);letter-spacing:1px;margin-bottom:4px;}
+    .stat-n .sl{color:var(--lime);}
+    .stat-n .sp{color:var(--pink);}
+    .stat-l{font-size:12px;color:var(--muted);font-weight:400;letter-spacing:-0.01em;}
+
+    /* HOW */
+    .how-section{padding:60px 0;}
+    .sec-hd{display:flex;align-items:flex-end;justify-content:space-between;padding:52px 0 28px;}
+    .sec-ttl{font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:34px;color:var(--ink);letter-spacing:-0.03em;font-weight:700;}
+    .sec-ttl .sp{color:var(--pink);}
+    .sec-more{
+      font-size:12px;color:var(--muted);text-decoration:none;
+      border-bottom:1px solid var(--border2);padding-bottom:2px;transition:color .2s;
+    }
+    .sec-more:hover{color:var(--ink);}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:52px;}
+    .step{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:28px 24px;
+    }
+    .step-num{
+      font-family:'Bebas Neue',sans-serif;font-size:42px;
+      color:var(--lime-bg);margin-bottom:12px;line-height:1;
+      -webkit-text-stroke:1.5px var(--lime);
+    }
+    .step-name{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px;letter-spacing:-0.02em;}
+    .step-desc{font-size:14px;color:var(--muted);line-height:1.85;font-weight:400;letter-spacing:-0.015em;}
+
+    /* PROFILES */
+    .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:64px;}
+    .pcard{
+      position:relative;
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;overflow:hidden;transition:border-color .25s ease,transform .3s ease,box-shadow .3s ease;
+      transform-style:preserve-3d;
+    }
+    .pcard:hover{border-color:var(--border2);transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,0.08);}
+    .pcard::after{
+      content:'';position:absolute;top:0;left:-120%;width:70%;height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+      transform:skewX(-18deg);transition:left .7s ease;
+      pointer-events:none;
+    }
+    .pcard:hover::after{left:130%;}
+    .pcard-top{
+      aspect-ratio:4/4.2;display:flex;align-items:center;justify-content:center;
+      position:relative;font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:2px;
+    }
+    .pcard-top-overlay{
+      position:absolute;inset:0;display:flex;
+      flex-direction:column;justify-content:space-between;padding:14px;
+    }
+    .pcard-chips{display:flex;gap:6px;}
+    .chip{font-size:10px;font-weight:700;padding:4px 10px;border-radius:2px;letter-spacing:0.5px;}
+    .chip-w{background:rgba(255,255,255,0.88);color:var(--ink);}
+    .chip-l{background:var(--lime-bg);color:#3a7000;border:1px solid #c6f07a;}
+    .chip-p{background:var(--pink-bg);color:#cc2060;border:1px solid #ffb3ce;}
+    .pcard-meta{text-align:left;}
+    .pcard-name-big{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);letter-spacing:1px;}
+    .pcard-age{font-size:12px;color:var(--muted);}
+    .pcard-body{padding:12px;}
+    .pcard-job{font-size:11px;color:var(--muted);font-weight:500;margin-bottom:8px;letter-spacing:-0.01em;}
+    .pcard-intro{font-size:12px;color:var(--muted);line-height:1.6;font-weight:400;margin-bottom:10px;letter-spacing:-0.015em;}
+    .pcard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
+    .ptag{
+      font-size:9px;padding:2px 7px;border-radius:100px;
+      background:var(--bg);color:var(--muted);border:1px solid var(--border);
+    }
+    .pcard-footer{display:flex;gap:8px;}
+    .btn-match{
+      flex:1;background:var(--ink);color:#fff;font-size:11px;font-weight:700;
+      padding:9px;border-radius:6px;text-align:center;text-decoration:none;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;transition:opacity .2s;
+      border:none;cursor:pointer;
+    }
+    .btn-match:hover{opacity:.8;}
+    .btn-save{
+      width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+      border:1px solid var(--border);border-radius:6px;text-decoration:none;
+      font-size:16px;color:var(--muted2);transition:border-color .2s,color .2s;cursor:pointer;
+      background:none;transition:border-color .25s ease,color .25s ease, transform .2s ease, background .25s ease;
+    }
+    .btn-save:hover{border-color:var(--pink);color:var(--pink);background:var(--pink-bg);transform:translateY(-1px) scale(1.03);}
+    .btn-save.saved{color:var(--pink);border-color:var(--pink);}
+
+    .match-hint,
+    .review-access-hint,
+    .review-empty{
+      background:var(--surface);border:1px dashed var(--border2);
+      border-radius:12px;padding:32px;text-align:center;font-size:14px;
+      color:var(--muted);line-height:1.95;letter-spacing:-0.015em;
+    }
+
+    .review-empty{
+      border-style:solid;
+      border-color:var(--border);
+      margin-bottom:24px;
+    }
+
+    /* TESTIMONIAL */
+    .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:64px;}
+    .tcard{
+      background:var(--surface);border:1px solid var(--border);
+      border-radius:12px;padding:28px;transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+    }
+    .tcard-quote{font-size:15px;color:var(--text);line-height:1.9;font-weight:400;margin-bottom:20px;letter-spacing:-0.015em;}
+    .tcard-quote strong{color:var(--ink);font-weight:500;}
+    .tcard-author{display:flex;align-items:center;gap:12px;}
+    .tcard-avatar{
+      width:36px;height:36px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:12px;font-weight:700;
+    }
+    .tcard-name{font-size:13px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;}
+    .tcard-meta{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:-0.01em;}
+    .heart-icon{color:var(--pink);font-size:14px;}
+    .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,0.06);border-color:var(--border2);}
+
+    /* CTA / FORM */
+    .cta-band{
+      background:var(--ink);border-radius:12px;padding:52px 60px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:40px;margin-bottom:64px;
+    }
+    .cta-tag{font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:14px;}
+    .cta-title{font-family:'Bebas Neue',sans-serif;font-size:44px;color:#fff;letter-spacing:2px;line-height:1;}
+    .cta-title .sp{color:var(--pink);}
+    .cta-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-top:12px;font-weight:400;line-height:1.8;letter-spacing:-0.01em;}
+    .form-mini{display:flex;flex-direction:column;gap:10px;width:290px;}
+    .form-mini input,.form-mini select{
+      width:100%;background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);border-radius:6px;
+      padding:11px 14px;font-size:13px;color:#fff;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;outline:none;transition:border-color .2s;
+    }
+    .form-mini input:focus,.form-mini select:focus{border-color:var(--lime);box-shadow:0 0 0 4px rgba(125,214,0,0.12);background:rgba(255,255,255,0.10);}
+    .form-mini input::placeholder{color:rgba(255,255,255,0.3);}
+    .form-mini select option{background:#111;color:#fff;}
+    .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .submit-mini{
+      background:var(--lime);color:#111;border:none;border-radius:6px;
+      padding:12px;font-size:13px;font-weight:700;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;letter-spacing:-0.01em;cursor:pointer;width:100%;transition:opacity .2s;
+    }
+    .submit-mini:hover{opacity:.93;transform:translateY(-1px);box-shadow:0 14px 34px rgba(125,214,0,0.24);}
+    .submit-mini:active{transform:scale(0.98);}
+
+    /* SUCCESS TOAST */
+    .toast{
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);
+      background:var(--ink);color:#fff;font-size:13px;font-weight:500;
+      padding:12px 24px;border-radius:8px;opacity:0;transition:all .3s;z-index:999;
+      font-family:'Pretendard','Noto Sans KR',sans-serif;white-space:nowrap;letter-spacing:-0.01em;
+    }
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--border);padding:32px 0;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .footer-logo{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--ink);letter-spacing:2px;}
+    .footer-logo .sl{color:var(--lime);}
+    .footer-links{display:flex;gap:20px;}
+    .footer-links a{font-size:11px;color:var(--muted);text-decoration:none;transition:color .2s;font-weight:500;letter-spacing:-0.01em;}
+    .footer-links a:hover{color:var(--ink);}
+    .footer-copy{font-size:11px;color:var(--muted);letter-spacing:-0.01em;}
+
+    /* ANIMATIONS */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    .fade-up{opacity:0;animation:fadeUp .6s ease forwards;}
+    .delay-1{animation-delay:.1s;}
+    .delay-2{animation-delay:.2s;}
+    .delay-3{animation-delay:.3s;}
+    .delay-4{animation-delay:.4s;}
+
+    /* MODAL */
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;
+      align-items:center;justify-content:center;z-index:1000;opacity:0;visibility:hidden;
+      transition:opacity .3s,visibility .3s;
+    }
+    .modal.show{opacity:1;visibility:visible;}
+    .modal-content{
+      background:var(--surface);border-radius:12px;padding:32px;max-width:400px;width:90%;
+      box-shadow:0 20px 60px rgba(0,0,0,0.15);
+    }
+    .modal h3{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;text-align:center;}
+    .modal input{
+      width:100%;padding:12px;border:1px solid var(--border);border-radius:6px;
+      font-size:14px;margin-bottom:16px;outline:none;
+    }
+    .modal .btn-primary{
+      background:var(--lime);color:#111;border:none;border-radius:6px;
+      padding:12px;font-size:14px;font-weight:700;width:100%;cursor:pointer;
+    }
+    .modal .btn-secondary{
+      background:none;border:1px solid var(--border);color:var(--muted);
+      padding:12px;font-size:14px;border-radius:6px;width:100%;cursor:pointer;margin-top:8px;
+    }
+
+    .pcard-photo{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .pcard-photo-fallback{
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .pending-card .pcard-top,
+    .match-card-mini .pcard-top{
+      overflow:hidden;
+    }
+    .admin-dashboard .pcard{transform:none !important;}
+    .admin-dashboard .pcard:hover{transform:none;box-shadow:0 10px 24px rgba(0,0,0,0.05);}
+    .pending-card-compact,
+    .member-card-compact{
+      display:grid;
+      grid-template-columns:150px 1fr;
+      align-items:stretch;
+      margin-bottom:12px;
+    }
+    .pending-card-compact .pcard-top,
+    .member-card-compact .pcard-top{
+      aspect-ratio:auto;
+      min-height:150px;
+    }
+    .pending-card-compact .pcard-body,
+    .member-card-compact .pcard-body{
+      padding:12px;
+    }
+    .pending-card-compact .pcard-name-big,
+    .member-card-compact .pcard-name-big{
+      font-size:16px;
+    }
+    .pending-card-compact .pcard-job,
+    .member-card-compact .pcard-job{
+      font-size:11px;
+      margin-bottom:6px;
+    }
+    .pending-card-compact .pcard-intro,
+    .member-card-compact .pcard-intro{
+      font-size:10px;
+      line-height:1.5;
+      margin-bottom:6px;
+    }
+    .pending-card-compact .pcard-tags,
+    .member-card-compact .pcard-tags{
+      margin-bottom:8px;
+      gap:4px;
+    }
+    .pending-card-compact .ptag,
+    .member-card-compact .ptag{
+      font-size:9px;
+      padding:2px 6px;
+    }
+    @media(max-width:768px){
+      .pending-card-compact,
+      .member-card-compact{
+        grid-template-columns:1fr;
+      }
+      .pending-card-compact .pcard-top,
+      .member-card-compact .pcard-top{
+        min-height:180px;
+      }
+    }
+    .match-candidate-list{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:12px;
+      margin-top:16px;
+      max-height:420px;
+      overflow:auto;
+    }
+    .match-card-mini{
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      background:var(--surface);
+    }
+    .match-card-mini .pcard-body{
+      padding:10px;
+    }
+    .match-meta-row{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .match-status-badge{
+      display:inline-flex;
+      align-items:center;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:700;
+      background:var(--bg);
+      border:1px solid var(--border);
+      color:var(--ink);
+    }
+    .match-admin-item{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:16px;
+      background:var(--bg);
+    }
+    .match-admin-head{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:flex-start;
+      margin-bottom:10px;
+    }
+    .match-admin-title{
+      font-size:16px;
+      font-weight:700;
+      color:var(--ink);
+    }
+    .match-admin-sub{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:4px;
+      line-height:1.6;
+    }
+    .match-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .match-actions button{
+      border:none;
+      border-radius:8px;
+      padding:9px 12px;
+      font-size:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .match-actions .secondary{
+      background:#fff;
+      color:var(--ink);
+      border:1px solid var(--border);
+    }
+    .match-actions .primary{
+      background:var(--lime);
+      color:#111;
+    }
+    .match-actions .accent{
+      background:var(--ink);
+      color:#fff;
+    }
+    .match-contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+
+    .hero-tag{box-shadow:0 8px 18px rgba(125,214,0,0.10);}
+    .sec-ttl,.cta-title,.logo,.footer-logo{will-change:transform;}
+    .step{transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;}
+    .step:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,0.06);border-color:var(--border2);}
+    .stat{transition:background .25s ease;}
+    .stat:hover{background:rgba(255,255,255,0.45);}
+    .cta-band{box-shadow:0 18px 46px rgba(17,17,17,0.14);}
+    .footer-links a{position:relative;}
+    .footer-links a::after{
+      content:'';position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:currentColor;
+      transform:scaleX(0);transform-origin:left;transition:transform .25s ease;opacity:.55;
+    }
+    .footer-links a:hover::after{transform:scaleX(1);}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){
+      .cards{grid-template-columns:repeat(2,1fr);}
+    }
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr;}
+      .hero-left{padding-right:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:40px;margin-bottom:40px;}
+      .hero-right{padding-left:0;}
+      .stats{grid-template-columns:repeat(2,1fr);}
+      .stat:nth-child(2){border-right:none;}
+      .stat:nth-child(3){border-top:1px solid var(--border);}
+      .stat:nth-child(4){border-top:1px solid var(--border);border-right:none;}
+      .steps{grid-template-columns:1fr;}
+      .cards{grid-template-columns:1fr;}
+      .testimonials{grid-template-columns:1fr;}
+      .cta-band{flex-direction:column;padding:40px 32px;}
+      .form-mini{width:100%;}
+      .nav-links{display:none;}
+    }
+
+    .lookup-match-preview{margin-top:16px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;}
+    .lookup-match-preview h4{font-size:13px;color:var(--muted);margin-bottom:8px;font-weight:600;}
+    .lookup-match-summary{font-size:15px;color:var(--ink);font-weight:700;line-height:1.6;}
+    .lookup-match-job{font-size:13px;color:var(--text);margin-top:8px;line-height:1.7;}
+    .lookup-accept-wrap{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .lookup-accept-note{font-size:12px;color:var(--muted);line-height:1.6;}
+
+  </style>
+
+<!--
+OG 적용 안내
+1) 이 파일명을 index.html로 사용
+2) 아래 파일을 같은 폴더에 같이 업로드: og-image-love.png, apply-success.html
+3) YOUR-VERCEL-DOMAIN을 실제 배포 주소로 바꾸기
+   예: https://my-site.vercel.app
+-->
+
+</head>
+<body>
+
+<div class="modal" id="adminModal">
+  <div class="modal-content">
+    <h3>관리자 로그인</h3>
+    <input type="password" id="adminPassword" placeholder="비밀번호 입력">
+    <button class="btn-primary" onclick="loginAdmin()">로그인</button>
+    <button class="btn-secondary" onclick="closeModal()">취소</button>
+  </div>
+</div>
+
+<div class="modal" id="matchModal">
+  <div class="modal-content" style="max-width:760px;">
+    <h3>매칭 제안</h3>
+    <div id="matchModalBody" style="font-size:14px;color:var(--muted);line-height:1.8;">후보를 불러오는 중입니다.</div>
+    <button class="btn-secondary" onclick="closeMatchModal()">닫기</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="w">
+  <nav>
+    <div class="logo">YEON<span class="logo-dot">:</span>YEON</div>
+    <div class="nav-links">
+      <a href="#profiles">서비스 소개</a>
+      <a href="#how">이용 안내</a>
+      <a href="#reviews">후기</a>
+      <a href="#" onclick="openAdminLogin()">관리자 로그인</a>
+    </div>
+    <a href="#apply" class="nav-btn">지금 시작하기</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<div class="w">
+  <div class="hero">
+    <div class="hero-left fade-up">
+      <div class="hero-tag"><span class="live-dot"></span> 실시간 매칭중</div>
+      <h1><span class="hl">아무나</span><br>말고<br><span class="hp">당신</span>만을<br>위한 연</h1>
+      <p class="hero-desc">
+  검증된 인연만을 소개합니다.<br>
+  조건이 아닌, 사람을 봅니다.<br>
+  당신에게 맞는 단 한 사람을 연결합니다.
+</p>
+      <div class="hero-btns">
+        <a href="#profiles" class="btn-primary">서비스 소개</a>
+        <a href="#apply" class="btn-outline">프로필 등록</a>
+      </div>
+    </div>
+    <div class="hero-right fade-up delay-2">
+      <div class="ticker" id="heroTicker"></div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="w">
+  <div class="stats fade-up delay-3">
+    <div class="stat"><div class="stat-n" id="memberCount">6<span class="sl">명</span></div><div class="stat-l">현재 등록 회원</div></div>
+    <div class="stat"><div class="stat-n">100<span class="sl">%</span></div><div class="stat-l">신원 직접 확인</div></div>
+    <div class="stat"><div class="stat-n" id="matchCount">3<span class="sl">쌍</span></div><div class="stat-l">실제 만남 성사</div></div>
+    <div class="stat"><div class="stat-n">NO<span class="sp"> AI</span></div><div class="stat-l">사람이 직접 매칭</div></div>
+  </div>
+  <div id="adminMatchUpdate" style="display:none;text-align:center;margin-top:16px;">
+    <button onclick="incrementMatchCount()" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:10px 20px;font-size:13px;font-weight:700;">매칭 성공 +1</button>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="w" id="how">
+  <div class="sec-hd">
+    <div class="sec-ttl fade-up">이용 방법 안내<span class="sp">.</span></div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-name">프로필 등록</div>
+      <div class="step-desc">간단한 정보와 자기소개를 작성하면 검토 후 등록해 드려요. 모든 회원은 직접 검증합니다.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-name">프로필 탐색</div>
+      <div class="step-desc">우리팀이 직접 엄선한 프로필을 바탕으로, 가장 잘 맞는 분들과 매칭을 제안해 드립니다.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-name">큐레이터 연결</div>
+      <div class="step-desc">신청을 검토한 후 양측이 동의하면 연락처를 교환해 드립니다. 설레는 첫 만남을 응원해요.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILES -->
+<div class="w" id="profiles">
+  <div class="sec-hd">
+    <div>
+      <div class="sec-ttl fade-up">엄선된 인연 리스트<span class="sp">.</span></div>
+      <div style="font-size:13px;color:var(--muted);margin-top:8px;">우리가 직접 선별한 분들만 보여드려요. 원하는 상대를 찾는 대신, 맞춤 매칭을 받아보세요.</div>
+    </div>
+  </div>
+
+  <div class="admin-dashboard" style="display:none;flex-direction:column;gap:24px;margin-bottom:32px;">
+    <div class="pending-cards" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;"></div>
+    <div class="approved-members" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;"></div>
+    <div class="public-profile-builder" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;"></div>
+    <div class="admin-match-board" style="display:none;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;">
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">매칭 현황</h3>
+      <div class="match-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:16px;">
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">제안됨</div>
+          <div id="matchProposedCount" style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);">0</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">동의 완료</div>
+          <div id="matchAcceptedCount" style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);">0</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">연락처 공개</div>
+          <div id="matchRevealedCount" style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);">0</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;">
+          <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">종료</div>
+          <div id="matchClosedCount" style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--ink);">0</div>
+        </div>
+      </div>
+      <div id="matchList" style="display:flex;flex-direction:column;gap:12px;"></div>
+    </div>
+  </div>
+
+  <div class="cards fade-up">
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div class="w" id="reviews">
+  <div class="sec-hd">
+    <div class="sec-ttl fade-up">실제 이용 후기<span class="sp">.</span></div>
+  </div>
+  <div class="testimonials fade-up">
+  </div>
+  <div class="review-access-hint"></div>
+
+  <!-- Review Form -->
+  <div class="review-form" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:32px;">
+    <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">후기 작성</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+      <input type="text" id="reviewName" placeholder="이름" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="date" id="reviewBirth" placeholder="생년월일" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="reviewJob" placeholder="직업" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <input type="text" id="reviewTime" placeholder="만난 기간 (예: 2개월 전 성사)" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+      <textarea id="reviewQuote" placeholder="후기 내용" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;grid-column:1/-1;resize:vertical;"></textarea>
+    </div>
+    <button onclick="submitReview()" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:12px 24px;font-size:13px;font-weight:700;margin-top:16px;cursor:pointer;">후기 제출</button>
+  </div>
+</div>
+
+<!-- APPLY FORM -->
+<div class="w" id="apply">
+  <div class="cta-band fade-up">
+    <div>
+      <div class="cta-tag fade-up">직접 신청하기</div>
+      <div class="cta-title">당신도<br><span class="sp">연결</span>될 수 있어요</div>
+      <div class="cta-sub">모든 정보는 비공개예요.<br>검토 후 24시간 내에 연락드려요.</div>
+    </div>
+    <form class="form-mini" id="applyForm" onsubmit="submitForm(event); return false;">
+      <div class="form-row2">
+        <input type="text" id="fname" name="name" placeholder="이름" required>
+        <input type="date" id="fbirth" name="birthDate" placeholder="생년월일" required>
+      </div>
+      <div class="form-row2">
+        <select id="fgender" name="gender" required><option value="">성별 선택</option><option>남성</option><option>여성</option></select>
+        <input type="text" id="fregion" name="region" placeholder="지역" required>
+      </div>
+      <div class="form-row2">
+        <input type="number" id="fheight" name="height" placeholder="키 (cm)" min="100" max="230" required>
+        <input type="text" id="fjob" name="job" placeholder="직업" required>
+      </div>
+      <div class="form-row2">
+        <input type="text" id="fmbti" name="mbti" placeholder="MBTI (선택)" maxlength="4">
+        <input type="text" id="fcontact" name="contact" placeholder="연락처 (카카오 ID 가능)" required>
+      </div>
+      <input type="file" id="fphoto" name="photo" accept="image/*" required>
+      <button type="submit" class="submit-mini">신청하기 →</button>
+    </form>
+  </div>
+</div>
+
+<!-- STATUS LOOKUP -->
+<div class="w" id="lookup" style="margin-bottom:64px;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;box-shadow:0 12px 30px rgba(0,0,0,0.04);">
+    <div class="sec-ttl" style="font-size:28px;margin-bottom:8px;">내 신청 조회<span class="sp">.</span></div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:18px;">신청할 때 입력한 이름과 연락처로 현재 진행 상태를 확인할 수 있어요.</div>
+    <form onsubmit="lookupApplicationStatus(event); return false;" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;align-items:end;">
+      <div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">이름</div>
+        <input type="text" id="lookupName" placeholder="이름 입력" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:13px;">
+      </div>
+      <div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">연락처</div>
+        <input type="text" id="lookupContact" placeholder="연락처 또는 카카오 ID" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;font-size:13px;">
+      </div>
+      <button type="submit" style="height:44px;background:var(--ink);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;">조회하기</button>
+    </form>
+    <div id="lookupResult" style="display:none;margin-top:18px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px;"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="w">
+  <footer>
+    <div class="footer-logo">YEON<span class="sl">:</span>YEON</div>
+    <div class="footer-links">
+      <a href="#">개인정보처리방침</a>
+      <a href="#">이용약관</a>
+      <a href="#">인스타그램</a>
+    </div>
+    <div class="footer-copy">© 2026 YEON:YEON — 아무나 말고, 당신만을 위한 연.</div>
+  </footer>
+</div>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    getDoc,
+    deleteDoc,
+    setDoc
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  import {
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUxI7p43u7eDh9z19XXMRUb-ZTsLAtRj8",
+    authDomain: "yeon-yeon.firebaseapp.com",
+    projectId: "yeon-yeon",
+    storageBucket: "yeon-yeon.firebasestorage.app",
+    messagingSenderId: "226229603529",
+    appId: "1:226229603529:web:a912737eb0846e9e831118",
+    measurementId: "G-D87HFKRP4Z"
+  };
+
+  function hasFirebaseConfig(config) {
+    return Object.values(config).every(Boolean);
+  }
+
+  if (hasFirebaseConfig(firebaseConfig)) {
+    try {
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+      const storage = getStorage(app);
+
+      window.firebaseServices = {
+        app,
+        db,
+        auth,
+        storage,
+        collection,
+        addDoc,
+        getDocs,
+        doc,
+        getDoc,
+        deleteDoc,
+        setDoc,
+        signInWithEmailAndPassword,
+        signOut,
+        onAuthStateChanged,
+        ref,
+        uploadBytes,
+        getDownloadURL
+      };
+
+      console.log("Firebase 연결 완료");
+    } catch (error) {
+      console.error("Firebase 초기화 실패:", error);
+      window.firebaseServices = null;
+    }
+  } else {
+    console.log("Firebase 설정값이 비어 있어 localStorage 모드로 실행됩니다.");
+    window.firebaseServices = null;
+  }
+
+  window.dispatchEvent(new CustomEvent("firebase-ready"));
+</script>
+
+
+<script>
+  const initialPublicProfiles = [
+    { id:'public-seed-1', displayName:'익명1', age:28, gender:'여성', job:'마케터', location:'서울 성수', tags:'여행,독서,요리,카페', intro:'주말엔 새로운 카페를 탐방해요. 소소한 일상에서 행복을 찾는 편이에요.', badge:'NEW', bgColor:'#edffd4', textColor:'#c8ff0055', isVisible:true, tickerVisible:true, tickerOrder:1 },
+    { id:'public-seed-2', displayName:'익명2', age:31, gender:'남성', job:'개발자', location:'판교', tags:'등산,영화,기타,한강', intro:'주말엔 한강에서 자전거를 탑니다. 진지하고 따뜻한 관계를 원해요.', badge:'HOT', bgColor:'#fff0f5', textColor:'#ff4d8d33', isVisible:true, tickerVisible:true, tickerOrder:2 },
+    { id:'public-seed-3', displayName:'익명3', age:29, gender:'여성', job:'디자이너', location:'마포', tags:'전시,필라테스,식물,갤러리', intro:'미술관 투어를 즐겨요. 조용하고 깊은 대화를 나눌 수 있는 분을 찾아요.', badge:'NEW', bgColor:'#672fd8', textColor:'#c4aaff44', isVisible:true, tickerVisible:true, tickerOrder:3 }
+  ];
+  const initialReviews = [];
+
+  function getFirebaseServices() { return window.firebaseServices || null; }
+  function isAdmin() { return localStorage.getItem('adminLoggedIn') === 'true'; }
+  function isMatchedUser() { return localStorage.getItem('matched') === 'true'; }
+
+  function seedLocalData() {
+    if (!localStorage.getItem('publicProfiles')) localStorage.setItem('publicProfiles', JSON.stringify(initialPublicProfiles));
+    if (!localStorage.getItem('members')) localStorage.setItem('members', JSON.stringify([]));
+    if (!localStorage.getItem('applications')) localStorage.setItem('applications', JSON.stringify([]));
+    if (!localStorage.getItem('matches')) localStorage.setItem('matches', JSON.stringify([]));
+    if (!localStorage.getItem('approvedReviews')) localStorage.setItem('approvedReviews', JSON.stringify(initialReviews));
+    if (!localStorage.getItem('pendingReviews')) localStorage.setItem('pendingReviews', JSON.stringify([]));
+    if (!localStorage.getItem('successfulMatches')) localStorage.setItem('successfulMatches', '3');
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(window._toastTimer);
+    window._toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+
+  function calcAge(birthDateStr) {
+    if (!birthDateStr) return '';
+    const birth = new Date(birthDateStr);
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) age--;
+    return age;
+  }
+
+  function getCardColors(seed='') {
+    const palettes = [
+      ['#edffd4','#c8ff0055'],
+      ['#fff0f5','#ff4d8d33'],
+      ['#672fd8','#c4aaff44'],
+      ['#fff8e8','#ffd97744'],
+      ['#f0f5ff','#7eaaff33'],
+      ['#f0faf5','#70d6a044']
+    ];
+    const index = Math.abs(String(seed).split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0)) % palettes.length;
+    return { bgColor: palettes[index][0], textColor: palettes[index][1] };
+  }
+
+  async function loadCollectionItems(collectionName) {
+    const services = getFirebaseServices();
+    if (services && services.db) {
+      try {
+        const snapshot = await services.getDocs(services.collection(services.db, collectionName));
+        const items = [];
+        snapshot.forEach((docSnap) => items.push({ id: docSnap.id, ...docSnap.data() }));
+        localStorage.setItem(collectionName, JSON.stringify(items));
+        return items;
+      } catch (error) {
+        console.error(collectionName + ' 불러오기 실패:', error);
+      }
+    }
+    return JSON.parse(localStorage.getItem(collectionName) || '[]');
+  }
+
+  async function upsertItem(collectionName, item, id) {
+    const services = getFirebaseServices();
+    let saved = { ...item };
+    if (services && services.db) {
+      if (id) {
+        await services.setDoc(services.doc(services.db, collectionName, id), saved, { merge: true });
+        saved.id = id;
+      } else {
+        const docRef = await services.addDoc(services.collection(services.db, collectionName), saved);
+        saved.id = docRef.id;
+      }
+    } else if (!saved.id) {
+      saved.id = `${collectionName}-${Date.now()}`;
+    }
+
+    const current = JSON.parse(localStorage.getItem(collectionName) || '[]');
+    const idx = current.findIndex((entry) => entry.id === (id || saved.id));
+    if (idx >= 0) current[idx] = { ...current[idx], ...saved, id: id || saved.id };
+    else current.unshift({ ...saved, id: id || saved.id });
+    localStorage.setItem(collectionName, JSON.stringify(current));
+    return { ...saved, id: id || saved.id };
+  }
+
+  async function updateItem(collectionName, id, patch) {
+    return upsertItem(collectionName, patch, id);
+  }
+
+  function deleteLocalOnly(collectionName, id) {
+    const current = JSON.parse(localStorage.getItem(collectionName) || '[]');
+    localStorage.setItem(collectionName, JSON.stringify(current.filter((entry) => entry.id !== id)));
+  }
+
+  function getPhotoMarkup(card, displayName, options = {}) {
+    const { adminOriginal = false } = options;
+    const originalUrl = card.photoUrlOriginal || card.photoUrl || '';
+    const publicUrl = card.publicPhotoUrl || card.photoUrlPublic || '';
+    const finalUrl = adminOriginal ? (originalUrl || publicUrl) : publicUrl;
+    if (finalUrl) {
+      return `<img src="${finalUrl}" alt="${displayName}" class="pcard-photo">`;
+    }
+    return `<div class="pcard-photo-fallback">${String(displayName || '').substring(0,2).toUpperCase()}</div>`;
+  }
+
+  async function resizeImage(file, maxWidth = 1200, quality = 0.82) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = (e) => { img.src = e.target.result; };
+      reader.onerror = () => reject(new Error('파일 읽기 실패'));
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > maxWidth) {
+          height = Math.round((height * maxWidth) / width);
+          width = maxWidth;
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return reject(new Error('캔버스 생성 실패'));
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          if (!blob) return reject(new Error('이미지 변환 실패'));
+          const convertedName = file.name.replace(/\.[^.]+$/, '') + '.jpg';
+          resolve(new File([blob], convertedName, { type:'image/jpeg' }));
+        }, 'image/jpeg', quality);
+      };
+      img.onerror = () => reject(new Error('이미지 로드 실패'));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function renderPublicCard(card, container) {
+    const displayName = card.displayName || card.name || '익명';
+    const badgeClass = card.badge === 'NEW' ? 'chip-l' : card.badge === 'HOT' ? 'chip-p' : '';
+    const tags = (card.tags || '').split(',').filter(Boolean).map(tag => `<span class="ptag">${tag.trim()}</span>`).join('');
+    const actionHTML = isAdmin()
+      ? `<button class="btn-match" onclick="openMatchModal('${card.id}')">매칭 제안</button>`
+      : `<a href="#apply" class="btn-match">연결 요청</a>`;
+    container.insertAdjacentHTML('beforeend', `
+      <div class="pcard">
+        <div class="pcard-top" style="background:${card.bgColor};color:${card.textColor};">
+          ${getPhotoMarkup(card, displayName)}
+          <div class="pcard-top-overlay">
+            <div class="pcard-chips">
+              <span class="chip chip-w">${card.gender || '미입력'}</span>
+              ${card.badge ? `<span class="chip ${badgeClass}">${card.badge}</span>` : ''}
+            </div>
+            <div class="pcard-meta">
+              <div class="pcard-name-big">${displayName}</div>
+              <div class="pcard-age">${card.age || ''}세</div>
+            </div>
+          </div>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-job">${[card.job || '직업 미입력', card.location || '지역 미입력', card.height ? `${card.height}cm` : '', card.mbti || ''].filter(Boolean).join(' · ')}</div>
+          <div class="pcard-tags">${tags}</div>
+          <p class="pcard-intro">${card.intro || '소개가 아직 등록되지 않았어요.'}</p>
+          <div class="pcard-footer">
+            ${actionHTML}
+            <button class="btn-save" onclick="toggleSave(this)">♡</button>
+          </div>
+        </div>
+      </div>
+    `);
+  }
+
+
+  function formatTickerLocation(location='') {
+    return String(location).replace(/^서울\s*/, '').replace(/특별시|광역시|시|구|동/g, '').trim() || location;
+  }
+
+  function normalizeMBTI(value='') {
+    const cleaned = String(value || '').trim().toUpperCase().replace(/[^A-Z]/g, '');
+    if (!cleaned) return '';
+    return cleaned.slice(0, 4);
+  }
+
+  function normalizeContact(value='') {
+    return String(value || '').trim().toLowerCase().replace(/\s+/g, '').replace(/-/g, '');
+  }
+
+  function formatTickerBadge(badge='') {
+    if (badge === 'NEW') return { className: 'badge-new', text: '최근 등록' };
+    if (badge === 'HOT') return { className: 'badge-hot', text: '인기' };
+    return null;
+  }
+
+  function renderTickerPlaceholder(container) {
+    container.insertAdjacentHTML('beforeend', `
+      <div class="tick-item" style="border-style:dashed;">
+        <div class="tick-avatar" style="background:var(--bg);color:var(--muted2);">?</div>
+        <div class="tick-txt">
+          <div class="tick-name" style="color:var(--muted);">비공개 프로필 보유</div>
+          <div class="tick-sub">매칭 대상에게만 공개됩니다</div>
+        </div>
+      </div>
+    `);
+  }
+
+  async function renderHeroTicker() {
+    const ticker = document.getElementById('heroTicker');
+    if (!ticker) return;
+    ticker.innerHTML = '';
+
+    const profiles = (await loadCollectionItems('publicProfiles'))
+      .filter((profile) => profile.isVisible !== false && profile.tickerVisible !== false)
+      .sort((a, b) => {
+        const orderA = typeof a.tickerOrder === 'number' ? a.tickerOrder : Number(a.tickerOrder || 9999);
+        const orderB = typeof b.tickerOrder === 'number' ? b.tickerOrder : Number(b.tickerOrder || 9999);
+        if (orderA !== orderB) return orderA - orderB;
+        return (b.createdAt || 0) - (a.createdAt || 0);
+      })
+      .slice(0, 3);
+
+    if (!profiles.length) {
+      renderTickerPlaceholder(ticker);
+      return;
+    }
+
+    profiles.forEach((profile, index) => {
+      const badge = formatTickerBadge(profile.badge || '');
+      const avatarBg = index % 2 === 0 ? 'var(--lime-bg)' : 'var(--pink-bg)';
+      const avatarColor = index % 2 === 0 ? '#3a7000' : '#cc2060';
+      const tagText = (profile.tags || '')
+        .split(',')
+        .map(tag => tag.trim())
+        .filter(Boolean)
+        .slice(0, 3)
+        .join(' · ');
+      const subParts = [profile.job, formatTickerLocation(profile.location), profile.mbti || '', tagText].filter(Boolean);
+      ticker.insertAdjacentHTML('beforeend', `
+        <div class="tick-item">
+          <div class="tick-avatar" style="background:${avatarBg};color:${avatarColor};">익</div>
+          <div class="tick-txt">
+            <div class="tick-name">${[profile.gender || '회원', profile.age || '-', profile.height ? `${profile.height}cm` : ''].filter(Boolean).join(' · ')}</div>
+            <div class="tick-sub">${subParts.join(' · ')}</div>
+          </div>
+          ${badge ? `<span class="tick-badge ${badge.className}">${badge.text}</span>` : ''}
+        </div>
+      `);
+    });
+
+    renderTickerPlaceholder(ticker);
+  }
+
+  async function loadPublicProfiles() {
+    const cardsContainer = document.querySelector('.cards');
+    cardsContainer.innerHTML = '';
+    const profiles = (await loadCollectionItems('publicProfiles')).filter((profile) => profile.isVisible !== false);
+
+    if (!profiles.length) {
+      cardsContainer.innerHTML = `<div class="match-hint">공개 중인 익명 프로필이 아직 없어요.<br>관리자 페이지에서 공개용 카드를 설정하면 이곳에 표시됩니다.</div>`;
+      return;
+    }
+
+    profiles
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
+      .forEach((profile) => renderPublicCard(profile, cardsContainer));
+
+    cardsContainer.querySelectorAll('.pcard').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px) scale(0.95)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+      if (isElementInViewport(el)) {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) scale(1)';
+        }, 100);
+      }
+    });
+  }
+
+  function renderReview(review, container) {
+    const initials = review.name.substring(0, 1).toUpperCase();
+    container.insertAdjacentHTML('beforeend', `
+      <div class="tcard">
+        <div class="tcard-quote">${review.quote}</div>
+        <div class="tcard-author">
+          <div class="tcard-avatar" style="background:${review.bgColor};color:${review.textColor};">${initials}</div>
+          <div>
+            <div class="tcard-name">${review.name} 님</div>
+            <div class="tcard-meta">${review.age}세 · ${review.job} · ${review.time}</div>
+          </div>
+        </div>
+      </div>
+    `);
+  }
+
+  function loadApprovedReviews() {
+    const approvedReviews = JSON.parse(localStorage.getItem('approvedReviews') || '[]');
+    const reviewsContainer = document.querySelector('.testimonials');
+    reviewsContainer.innerHTML = '';
+    if (!approvedReviews.length) {
+      reviewsContainer.innerHTML = '<div class="review-empty">등록된 후기가 없습니다. 매칭된 고객의 첫 후기를 기다리고 있어요.</div>';
+      return;
+    }
+    approvedReviews.forEach((review) => renderReview(review, reviewsContainer));
+  }
+
+  async function updateStats() {
+    const members = await loadCollectionItems('members');
+    const publicProfiles = await loadCollectionItems('publicProfiles');
+    const memberCount = members.length || publicProfiles.length;
+    document.getElementById('memberCount').innerHTML = `${memberCount}<span class="sl">명</span>`;
+    const matchCount = parseInt(localStorage.getItem('successfulMatches') || '3', 10);
+    document.getElementById('matchCount').innerHTML = `${matchCount}<span class="sl">쌍</span>`;
+  }
+
+  function showUserMode() {
+    document.querySelector('.admin-dashboard').style.display = 'none';
+    document.querySelector('.review-form').style.display = isMatchedUser() ? 'block' : 'none';
+    document.querySelector('.review-access-hint').innerHTML = isMatchedUser()
+      ? ''
+      : '<div>매칭이 완료된 분만 후기를 남길 수 있습니다.<br>매칭 확정 후 이곳에서 작성해 주세요.</div>';
+    document.getElementById('adminMatchUpdate').style.display = 'none';
+    document.querySelector('.admin-match-board').style.display = 'none';
+    document.querySelector('.nav-links a:last-child').textContent = '관리자 로그인';
+    document.querySelector('.nav-links a:last-child').setAttribute('onclick', 'openAdminLogin()');
+  }
+
+  async function showAdminMode() {
+    document.querySelector('.admin-dashboard').style.display = 'flex';
+    document.querySelector('.review-form').style.display = 'none';
+    document.querySelector('.review-access-hint').innerHTML = '';
+    document.getElementById('adminMatchUpdate').style.display = 'block';
+    document.querySelector('.admin-match-board').style.display = 'block';
+    document.querySelector('.nav-links a:last-child').textContent = '관리자 로그아웃';
+    document.querySelector('.nav-links a:last-child').setAttribute('onclick', 'logoutAdmin()');
+    await loadPendingCards();
+    await loadApprovedMembers();
+    await loadPublicProfileBuilder();
+    await loadMatchAdminList();
+  }
+
+  function syncAdminUI() {
+    if (isAdmin()) showAdminMode();
+    else showUserMode();
+  }
+
+  function startFirebaseAuthWatcher() {
+    const services = getFirebaseServices();
+    if (!services || !services.auth) return;
+    services.onAuthStateChanged(services.auth, (user) => {
+      if (user) localStorage.setItem('adminLoggedIn', 'true');
+      else localStorage.removeItem('adminLoggedIn');
+      syncAdminUI();
+    });
+  }
+
+  async function loadPendingCards() {
+    const pendingContainer = document.querySelector('.pending-cards');
+    pendingContainer.innerHTML = '<h3 style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">대기 중 신청자</h3><p style="margin-bottom:16px;color:var(--muted);font-size:13px;">직접 신청하기로 접수된 원본 신청서예요. 승인하면 실제 회원으로 이동합니다.</p>';
+    const applications = (await loadCollectionItems('applications')).filter((item) => (item.status || 'pending') === 'pending');
+    window._pendingApplications = applications;
+
+    if (!applications.length) {
+      pendingContainer.innerHTML += '<div class="match-hint">대기 중인 신청 내역이 없습니다.</div>';
+      return;
+    }
+
+    applications.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)).forEach((app) => {
+      pendingContainer.insertAdjacentHTML('beforeend', `
+        <div class="pcard pending-card pending-card-compact">
+          <div class="pcard-top" style="background:#f0f5ff;color:#7eaaff33;">
+            ${getPhotoMarkup(app, app.name || '', { adminOriginal: true })}
+            <div class="pcard-top-overlay">
+              <div class="pcard-chips"><span class="chip chip-w">${app.gender || '미입력'}</span><span class="chip chip-l">PENDING</span></div>
+              <div class="pcard-meta"><div class="pcard-name-big">${app.name || '이름 미입력'}</div><div class="pcard-age">${calcAge(app.birthDate)}세</div></div>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-job">${[app.job || '직업 미입력', app.region || '지역 미입력', app.height ? `${app.height}cm` : '키 미입력', app.mbti || ''].filter(Boolean).join(' · ')}</div>
+            <div class="pcard-tags"><span class="ptag">${app.contact || '연락처 미입력'}</span></div>
+            <p class="pcard-intro">신청 원본 데이터입니다. 승인 후 공개 카드는 별도로 만들어 주세요.</p>
+            <div class="pcard-footer">
+              <button class="btn-match" onclick="approveApplication('${app.id}')">승인</button>
+              <button class="btn-save" style="width:auto;padding:0 16px;" onclick="rejectApplication('${app.id}')">거부</button>
+            </div>
+          </div>
+        </div>
+      `);
+    });
+  }
+
+  async function approveApplication(id) {
+    try {
+      const applications = await loadCollectionItems('applications');
+      const app = applications.find((item) => item.id === id);
+      if (!app) return showToast('신청자를 찾지 못했어요.');
+
+      const { bgColor, textColor } = getCardColors(app.name || id);
+      const member = {
+        applicationId: id,
+        realName: app.name,
+        birthDate: app.birthDate || '',
+        age: calcAge(app.birthDate),
+        gender: app.gender || '',
+        region: app.region || '',
+        location: app.region || '',
+        height: app.height || '',
+        mbti: normalizeMBTI(app.mbti || ''),
+        job: app.job || '직업 미입력',
+        contact: app.contact || '',
+        contactNormalized: app.contactNormalized || normalizeContact(app.contact || ''),
+        photoUrlOriginal: app.photoUrlOriginal || app.photoUrl || '',
+        photoUrlPublic: '',
+        photoPublicApproved: false,
+        bgColor, textColor,
+        createdAt: app.createdAt || Date.now(),
+        approvedAt: Date.now(),
+        status: 'approved'
+      };
+      const savedMember = await upsertItem('members', member);
+      await updateItem('applications', id, { status: 'approved', approvedAt: Date.now(), memberId: savedMember.id });
+      showToast('신청자를 승인했어요. 이제 공개용 익명 카드를 만들 수 있어요.');
+      await loadPendingCards();
+      await loadApprovedMembers();
+      await updateStats();
+    } catch (error) {
+      console.error('승인 실패:', error);
+      const message = error?.message || '';
+      if (message.includes('Missing or insufficient permissions') || message.includes('permission-denied')) {
+        showToast('승인 실패: Firestore 권한 설정을 확인해주세요.');
+      } else {
+        showToast(`승인 실패: ${message || '알 수 없는 오류가 발생했어요.'}`);
+      }
+    }
+  }
+
+  async function rejectApplication(id) {
+    await updateItem('applications', id, { status: 'rejected', rejectedAt: Date.now() });
+    showToast('신청을 거부 처리했어요.');
+    await loadPendingCards();
+  }
+
+  async function loadApprovedMembers() {
+    const membersContainer = document.querySelector('.approved-members');
+    membersContainer.innerHTML = '<h3 style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">승인 회원 관리</h3><p style="margin-bottom:16px;color:var(--muted);font-size:13px;">실제 회원 정보입니다. 여기서 공개용 익명 카드를 만들어요.</p>';
+    const members = (await loadCollectionItems('members')).filter((item) => item.status !== 'archived');
+    window._approvedMembers = members;
+
+    if (!members.length) {
+      membersContainer.innerHTML += '<div class="match-hint">아직 승인된 회원이 없습니다.</div>';
+      return;
+    }
+
+    members.sort((a,b)=>(b.approvedAt||0)-(a.approvedAt||0)).forEach((member) => {
+      membersContainer.insertAdjacentHTML('beforeend', `
+        <div class="pcard member-card-compact">
+          <div class="pcard-top" style="background:${member.bgColor};color:${member.textColor};">
+            ${getPhotoMarkup(member, member.realName || '', { adminOriginal: true })}
+            <div class="pcard-top-overlay">
+              <div class="pcard-chips"><span class="chip chip-w">${member.gender || '미입력'}</span><span class="chip chip-l">MEMBER</span></div>
+              <div class="pcard-meta"><div class="pcard-name-big">${member.realName || '이름 미입력'}</div><div class="pcard-age">${member.age || ''}세</div></div>
+            </div>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-job">${[member.job || '직업 미입력', member.region || '지역 미입력', member.height ? `${member.height}cm` : '키 미입력', member.mbti || ''].filter(Boolean).join(' · ')}</div>
+            <div class="pcard-tags"><span class="ptag">${member.contact || '연락처 미입력'}</span></div>
+            <p class="pcard-intro">실제 회원 정보는 관리자만 볼 수 있어요. 공개 페이지에는 익명 카드만 노출됩니다.</p>
+            <div class="pcard-footer">
+              <button class="btn-match" onclick="prefillPublicProfileForm('${member.id}')">공개 카드 설정</button>
+            </div>
+          </div>
+        </div>
+      `);
+    });
+  }
+
+  async function loadPublicProfileBuilder(prefillMemberId = '') {
+    const builder = document.querySelector('.public-profile-builder');
+    const members = (await loadCollectionItems('members')).filter((item) => item.status === 'approved' || item.status === undefined);
+    const profiles = await loadCollectionItems('publicProfiles');
+    const memberOptions = members.map((member) => `<option value="${member.id}" ${prefillMemberId === member.id ? 'selected' : ''}>${member.realName} · ${member.gender} · ${member.region || '지역 미입력'}</option>`).join('');
+    builder.innerHTML = `
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">공개용 익명 프로필 설정</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <select id="publicMemberId" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+          <option value="">회원 선택</option>
+          ${memberOptions}
+        </select>
+        <input type="text" id="publicDisplayName" placeholder="공개명 (예: 익명7)" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <input type="text" id="publicLocation" placeholder="공개 지역" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <input type="text" id="publicJob" placeholder="공개 직업" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <input type="text" id="publicMbti" placeholder="공개 MBTI" maxlength="4" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <input type="text" id="publicTags" placeholder="태그 (쉼표 구분)" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <select id="publicBadge" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+          <option value="">배지 없음</option>
+          <option value="NEW">NEW</option>
+          <option value="HOT">HOT</option>
+        </select>
+        <input type="number" id="publicTickerOrder" placeholder="상단 티커 순서" min="1" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;">
+        <input type="text" id="publicIntro" placeholder="공개 소개" style="padding:10px;border:1px solid var(--border);border-radius:6px;font-size:13px;grid-column:1/-1;">
+        <div style="display:flex;flex-wrap:wrap;gap:16px;grid-column:1/-1;">
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><input type="checkbox" id="publicVisible" checked> 공개 리스트에 바로 노출</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><input type="checkbox" id="publicTickerVisible" checked> 상단 티커에도 노출</label>
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);"><input type="checkbox" id="publicPhotoVisible"> 공개 카드에 사진 사용</label>
+        </div>
+      </div>
+      <button onclick="savePublicProfile()" style="background:var(--lime);color:#111;border:none;border-radius:6px;padding:12px 24px;font-size:13px;font-weight:700;margin-top:16px;cursor:pointer;">공개 카드 저장</button>
+      <div id="publicProfileList" style="margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
+        ${profiles.map((profile) => `
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px;">
+            <div style="font-size:14px;color:var(--ink);font-weight:700;">${profile.displayName || '익명'}</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;">${[profile.gender || '', profile.location || '지역 미입력', profile.job || '직업 미입력', profile.height ? `${profile.height}cm` : '', profile.mbti || ''].filter(Boolean).join(' · ')}</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;">리스트 ${profile.isVisible !== false ? '공개중' : '비공개'} · 티커 ${profile.tickerVisible !== false ? '노출중' : '숨김'}${profile.tickerOrder ? ` · 순서 ${profile.tickerOrder}` : ''}</div>
+            <div style="display:flex;gap:8px;margin-top:12px;">
+              <button onclick="editPublicProfile('${profile.id}')" style="background:var(--ink);color:#fff;border:none;border-radius:6px;padding:8px 12px;font-size:12px;cursor:pointer;">수정</button>
+              <button onclick="togglePublicVisibility('${profile.id}')" style="background:#fff;border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:12px;cursor:pointer;">${profile.isVisible !== false ? '숨기기' : '다시 공개'}</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  async function prefillPublicProfileForm(memberId) {
+    await loadPublicProfileBuilder(memberId);
+    const members = await loadCollectionItems('members');
+    const profiles = await loadCollectionItems('publicProfiles');
+    const member = members.find((item) => item.id === memberId);
+    if (!member) return;
+    const existing = profiles.find((profile) => profile.memberId === memberId);
+    document.getElementById('publicMemberId').value = memberId;
+    document.getElementById('publicDisplayName').value = existing?.displayName || '';
+    document.getElementById('publicLocation').value = existing?.location || member.region || '';
+    document.getElementById('publicJob').value = existing?.job || member.job || '';
+    document.getElementById('publicMbti').value = existing?.mbti || member.mbti || '';
+    document.getElementById('publicTags').value = existing?.tags || '';
+    document.getElementById('publicBadge').value = existing?.badge || '';
+    document.getElementById('publicIntro').value = existing?.intro || '';
+    document.getElementById('publicTickerOrder').value = existing?.tickerOrder || '';
+    document.getElementById('publicVisible').checked = existing ? existing.isVisible !== false : true;
+    document.getElementById('publicTickerVisible').checked = existing ? existing.tickerVisible !== false : true;
+    document.getElementById('publicPhotoVisible').checked = existing ? !!(existing.photoUrlPublic || existing.publicPhotoUrl) : false;
+  }
+
+  async function savePublicProfile() {
+    const memberId = document.getElementById('publicMemberId').value;
+    const displayName = document.getElementById('publicDisplayName').value.trim();
+    const location = document.getElementById('publicLocation').value.trim();
+    const job = document.getElementById('publicJob').value.trim();
+    const mbti = normalizeMBTI(document.getElementById('publicMbti').value);
+    const tags = document.getElementById('publicTags').value.trim();
+    const badge = document.getElementById('publicBadge').value;
+    const tickerOrderRaw = document.getElementById('publicTickerOrder').value.trim();
+    const intro = document.getElementById('publicIntro').value.trim();
+    const isVisible = document.getElementById('publicVisible').checked;
+    const tickerVisible = document.getElementById('publicTickerVisible').checked;
+    const publicPhotoVisible = document.getElementById('publicPhotoVisible').checked;
+
+    if (!memberId || !displayName || !location || !job || !intro) {
+      return showToast('회원 선택, 공개명, 지역, 직업, 소개는 필수예요.');
+    }
+
+    const members = await loadCollectionItems('members');
+    const member = members.find((item) => item.id === memberId);
+    if (!member) return showToast('회원 정보를 찾지 못했어요.');
+
+    const profiles = await loadCollectionItems('publicProfiles');
+    const existing = profiles.find((profile) => profile.memberId === memberId);
+    const colors = getCardColors(displayName);
+
+    const profileData = {
+      memberId,
+      displayName,
+      gender: member.gender,
+      age: member.age,
+      location,
+      job,
+      height: member.height || '',
+      mbti,
+      tags,
+      intro,
+      badge,
+      isVisible,
+      tickerVisible,
+      tickerOrder: tickerOrderRaw ? Number(tickerOrderRaw) : 9999,
+      photoUrlOriginal: member.photoUrlOriginal || member.photoUrl || '',
+      photoUrlPublic: publicPhotoVisible ? (member.photoUrlOriginal || member.photoUrl || '') : '',
+      publicPhotoUrl: publicPhotoVisible ? (member.photoUrlOriginal || member.photoUrl || '') : '',
+      photoPublicApproved: publicPhotoVisible,
+      contact: member.contact || '',
+      bgColor: existing?.bgColor || colors.bgColor,
+      textColor: existing?.textColor || colors.textColor,
+      createdAt: existing?.createdAt || Date.now()
+    };
+
+    await upsertItem('publicProfiles', profileData, existing?.id);
+    showToast('공개용 익명 카드가 저장되었어요.');
+    await loadPublicProfileBuilder(memberId);
+    await loadPublicProfiles();
+    await renderHeroTicker();
+  }
+
+  async function editPublicProfile(id) {
+    const profiles = await loadCollectionItems('publicProfiles');
+    const profile = profiles.find((item) => item.id === id);
+    if (!profile) return;
+    await prefillPublicProfileForm(profile.memberId);
+    document.getElementById('publicDisplayName').value = profile.displayName || '';
+    document.getElementById('publicLocation').value = profile.location || '';
+    document.getElementById('publicJob').value = profile.job || '';
+    document.getElementById('publicMbti').value = profile.mbti || '';
+    document.getElementById('publicTags').value = profile.tags || '';
+    document.getElementById('publicBadge').value = profile.badge || '';
+    document.getElementById('publicIntro').value = profile.intro || '';
+    document.getElementById('publicTickerOrder').value = profile.tickerOrder || '';
+    document.getElementById('publicVisible').checked = profile.isVisible !== false;
+    document.getElementById('publicTickerVisible').checked = profile.tickerVisible !== false;
+  }
+
+  async function togglePublicVisibility(id) {
+    const profiles = await loadCollectionItems('publicProfiles');
+    const profile = profiles.find((item) => item.id === id);
+    if (!profile) return;
+    await updateItem('publicProfiles', id, { isVisible: !(profile.isVisible !== false) });
+    await loadPublicProfileBuilder();
+    await loadPublicProfiles();
+    await renderHeroTicker();
+  }
+
+  function loadPendingReviews() {
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+    const container = document.querySelector('.pending-reviews') || createPendingReviewsContainer();
+    container.innerHTML = '<h3 style="font-family:\'Bebas Neue\',sans-serif;font-size:24px;color:var(--ink);margin-bottom:16px;">대기 중인 후기</h3>';
+    if (!pendingReviews.length) {
+      container.innerHTML += '<div class="match-hint">대기 중인 후기가 없습니다.</div>';
+      return;
+    }
+    pendingReviews.forEach((review, index) => {
+      container.insertAdjacentHTML('beforeend', `
+        <div class="tcard" style="margin-bottom:12px;">
+          <div class="tcard-quote">${review.quote}</div>
+          <div class="tcard-author">
+            <div class="tcard-avatar" style="background:${review.bgColor};color:${review.textColor};">${review.name.substring(0, 1).toUpperCase()}</div>
+            <div><div class="tcard-name">${review.name} 님</div><div class="tcard-meta">${review.age}세 · ${review.job} · ${review.time}</div></div>
+          </div>
+          <div class="pcard-footer" style="margin-top:16px;">
+            <button class="btn-match" onclick="approveReview(${index})">승인</button>
+            <button class="btn-save" style="width:auto;padding:0 16px;" onclick="rejectReview(${index})">거부</button>
+          </div>
+        </div>
+      `);
+    });
+  }
+
+  function createPendingReviewsContainer() {
+    const container = document.createElement('div');
+    container.className = 'pending-reviews';
+    container.style.cssText = 'background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;';
+    document.querySelector('.admin-dashboard').appendChild(container);
+    return container;
+  }
+
+  function approveReview(index) {
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+    const approvedReviews = JSON.parse(localStorage.getItem('approvedReviews') || '[]');
+    const review = pendingReviews.splice(index, 1)[0];
+    approvedReviews.unshift(review);
+    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+    localStorage.setItem('approvedReviews', JSON.stringify(approvedReviews));
+    loadPendingReviews();
+    loadApprovedReviews();
+    showToast('후기가 승인되었어요.');
+  }
+
+  function rejectReview(index) {
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+    pendingReviews.splice(index, 1);
+    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+    loadPendingReviews();
+    showToast('후기를 거부했어요.');
+  }
+
+  function openAdminLogin() {
+    document.getElementById('adminModal').classList.add('show');
+  }
+
+  function closeModal() {
+    document.getElementById('adminModal').classList.remove('show');
+    document.getElementById('adminPassword').value = '';
+  }
+
+  async function loginAdmin() {
+    const password = document.getElementById('adminPassword').value;
+    const services = getFirebaseServices();
+    if (services && services.auth) {
+      try {
+        await services.signInWithEmailAndPassword(services.auth, 'admin@yeonyeon.com', password);
+        localStorage.setItem('adminLoggedIn', 'true');
+        closeModal();
+        syncAdminUI();
+        showToast('관리자 로그인 완료!');
+      } catch (error) {
+        console.error(error);
+        showToast('Firebase 로그인 실패: 비밀번호를 확인해주세요.');
+      }
+      return;
+    }
+    if (password === 'admin1015!') {
+      localStorage.setItem('adminLoggedIn', 'true');
+      closeModal();
+      syncAdminUI();
+      showToast('관리자 모드로 전환되었습니다.');
+    } else {
+      showToast('비밀번호가 잘못되었습니다.');
+    }
+  }
+
+  async function logoutAdmin() {
+    const services = getFirebaseServices();
+    if (services && services.auth) {
+      try { await services.signOut(services.auth); } catch (error) { console.error(error); }
+    }
+    localStorage.removeItem('adminLoggedIn');
+    location.reload();
+  }
+
+  function submitReview() {
+    const name = document.getElementById('reviewName').value.trim();
+    const birthDateStr = document.getElementById('reviewBirth').value.trim();
+    const job = document.getElementById('reviewJob').value.trim();
+    const time = document.getElementById('reviewTime').value.trim();
+    const quote = document.getElementById('reviewQuote').value.trim();
+    if (!name || !birthDateStr || !job || !time || !quote) return showToast('모든 필드를 입력해주세요!');
+    const colors = ['#fff0f5', '#f0ffd4'];
+    const bgColor = colors[Math.floor(Math.random() * colors.length)];
+    const textColor = bgColor === '#fff0f5' ? '#cc2060' : '#3a7000';
+    const review = { name, age: calcAge(birthDateStr), birthDate: birthDateStr, job, time, quote, bgColor, textColor };
+    const pendingReviews = JSON.parse(localStorage.getItem('pendingReviews') || '[]');
+    pendingReviews.unshift(review);
+    localStorage.setItem('pendingReviews', JSON.stringify(pendingReviews));
+    ['reviewName','reviewBirth','reviewJob','reviewTime','reviewQuote'].forEach((id)=>document.getElementById(id).value='');
+    showToast('후기가 제출되었습니다! 관리자 승인 후 게시됩니다.');
+    if (isAdmin()) loadPendingReviews();
+  }
+
+  function toggleSave(btn) {
+    btn.classList.toggle('saved');
+    btn.textContent = btn.classList.contains('saved') ? '♥' : '♡';
+    if (btn.classList.contains('saved')) showToast('관심 목록에 저장됐어요 ♥');
+  }
+
+  async function submitForm(event) {
+    if (event) event.preventDefault();
+    const submitButton = document.querySelector('#applyForm .submit-mini');
+    const name = document.getElementById('fname').value.trim();
+    const birthDate = document.getElementById('fbirth').value.trim();
+    const gender = document.getElementById('fgender').value;
+    const region = document.getElementById('fregion').value.trim();
+    const height = document.getElementById('fheight').value.trim();
+    const job = document.getElementById('fjob').value.trim();
+    const mbti = normalizeMBTI(document.getElementById('fmbti').value);
+    const contact = document.getElementById('fcontact').value.trim();
+    const photoInput = document.getElementById('fphoto');
+    const photoFile = photoInput.files[0];
+
+    if (!name || !birthDate || !gender || !region || !height || !job || !contact || !photoFile) {
+      showToast('이름, 생년월일, 성별, 키, 직업, 연락처, 지역, 사진은 모두 필수예요!');
+      return false;
+    }
+
+    const heightNumber = Number(height);
+    if (!Number.isFinite(heightNumber) || heightNumber < 100 || heightNumber > 230) {
+      showToast('키는 100cm~230cm 사이로 입력해주세요.');
+      return false;
+    }
+
+    if (mbti && mbti.length !== 4) {
+      showToast('MBTI는 4자리로 입력해주세요. 예: ENFP');
+      return false;
+    }
+
+    if (photoFile) {
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
+      const maxSize = 5 * 1024 * 1024;
+      if (!allowedTypes.includes(photoFile.type)) {
+        showToast('사진은 JPG, PNG, WEBP 형식만 업로드할 수 있어요.');
+        return false;
+      }
+      if (photoFile.size > maxSize) {
+        showToast('사진 용량은 5MB 이하만 가능해요.');
+        return false;
+      }
+    }
+
+    const services = getFirebaseServices();
+    let photoUrlOriginal = '';
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = '신청 저장 중...';
+    }
+
+    try {
+      if (photoFile && services && services.storage) {
+        try {
+          const resizedPhoto = await resizeImage(photoFile, 1200, 0.82);
+          const safeName = `${Date.now()}_${resizedPhoto.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
+          const storageRef = services.ref(services.storage, `profile-photos/original/${safeName}`);
+          await services.uploadBytes(storageRef, resizedPhoto, { contentType: 'image/jpeg' });
+          photoUrlOriginal = await services.getDownloadURL(storageRef);
+        } catch (uploadError) {
+          console.error('사진 업로드 실패:', uploadError);
+          const uploadCode = uploadError?.code || '';
+          if (uploadCode.includes('storage/unauthorized') || uploadCode.includes('storage/permission-denied')) {
+            showToast('사진 업로드 권한이 없어 사진 없이 신청서를 저장할게요.');
+          } else {
+            showToast('사진 업로드에 실패해 사진 없이 신청서를 저장할게요.');
+          }
+          photoUrlOriginal = '';
+        }
+      }
+
+      const application = {
+        name,
+        birthDate,
+        gender,
+        region,
+        height: heightNumber,
+        mbti,
+        job,
+        contact,
+        contactNormalized: normalizeContact(contact),
+        photoUrlOriginal,
+        photoUrlPublic: '',
+        photoPublicApproved: false,
+        createdAt: Date.now(),
+        status: 'pending'
+      };
+
+      const saved = await upsertItem('applications', application);
+      localStorage.setItem('latestApplication', JSON.stringify(saved));
+      window.location.href = 'apply-success.html';
+      return true;
+    } catch (error) {
+      console.error('신청 저장 실패:', error);
+      const errorCode = error?.code || '';
+      if (errorCode.includes('permission-denied') || errorCode.includes('unauthenticated')) {
+        showToast('Firestore 권한 설정 때문에 신청 저장이 막혀 있어요. rules를 확인해주세요.');
+      } else {
+        showToast(`신청 저장 중 오류가 발생했어요. ${errorCode || '콘솔 로그를 확인해주세요.'}`);
+      }
+      return false;
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = '신청하기 →';
+      }
+    }
+  }
+
+
+  function getApplicantLookupStatus(application, member, memberMatches, matchContext) {
+    if (!application) return 'not_found';
+    const appStatus = application.status || 'pending';
+    if (appStatus === 'rejected') return 'rejected';
+
+    const directMatchStatus = application.matchStatus || member?.matchStatus || '';
+    const activeMatch = matchContext?.match || memberMatches
+      .slice()
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))[0];
+
+    const effectiveStatus = activeMatch?.status || directMatchStatus || '';
+    if (effectiveStatus === 'revealed') return 'revealed';
+    if (effectiveStatus === 'accepted' || effectiveStatus === 'matched') return 'matched';
+    if (effectiveStatus === 'partial_accepted') return matchContext?.selfAccepted ? 'awaiting_other' : 'matching';
+    if (effectiveStatus === 'proposed') return matchContext?.selfAccepted ? 'awaiting_other' : 'matching';
+
+    if (!member) return appStatus === 'approved' ? 'approved' : 'pending';
+    if (!memberMatches.length) return appStatus === 'approved' ? 'approved' : 'pending';
+    if (effectiveStatus === 'closed') return appStatus === 'approved' ? 'approved' : 'pending';
+    return appStatus === 'approved' ? 'approved' : 'pending';
+  }
+
+  function getLookupStatusContent(status, application, memberMatches, matchContext) {
+    const base = {
+      pending: {
+        label: '신청 접수 완료',
+        desc: '신청 내용이 정상적으로 접수되었어요. 현재 관리자 확인이 진행 중입니다.'
+      },
+      approved: {
+        label: '승인 완료',
+        desc: '기본 검토가 끝났어요. 이제 잘 맞는 인연을 찾는 단계로 넘어갑니다.'
+      },
+      matching: {
+        label: '매칭 진행 중',
+        desc: '회원님께 맞는 인연이 연결되었어요. 아래 프로필을 확인한 뒤 수락을 누르면 최종 연결이 진행됩니다.'
+      },
+      awaiting_other: {
+        label: '상대 수락 대기',
+        desc: '회원님은 수락을 완료했어요. 상대방도 수락하면 바로 연락처가 공개됩니다.'
+      },
+      matched: {
+        label: '매칭 완료',
+        desc: '좋은 인연이 연결되었어요. 양측 확인이 끝난 뒤 다음 단계가 안내됩니다.'
+      },
+      revealed: {
+        label: '연락처 공개 완료',
+        desc: '양측 수락이 완료되어 연락 가능한 단계예요. 아래 연락처를 확인해 주세요.'
+      },
+      rejected: {
+        label: '검토 보류',
+        desc: '현재는 연결 진행이 어려운 상태예요. 필요 시 관리자 안내를 참고해 주세요.'
+      },
+      not_found: {
+        label: '신청 내역 없음',
+        desc: '입력한 이름과 연락처로 확인되는 신청 내역이 없어요. 입력값을 다시 확인해 주세요.'
+      }
+    }[status] || { label: '확인 중', desc: '현재 상태를 불러오는 중입니다.' };
+
+    const meta = [];
+    if (application?.createdAt) {
+      meta.push(`신청일 ${new Date(application.createdAt).toLocaleDateString('ko-KR')}`);
+    }
+    if (application?.region) meta.push(application.region);
+    if (memberMatches?.length && (status === 'matching' || status === 'awaiting_other' || status === 'matched' || status === 'revealed')) {
+      meta.push(`매칭 기록 ${memberMatches.length}건`);
+    }
+    if (matchContext?.selfAccepted && (status === 'awaiting_other' || status === 'revealed')) {
+      meta.push('내 수락 완료');
+    }
+
+    return {
+      label: base.label,
+      desc: base.desc,
+      meta: meta.join(' · ')
+    };
+  }
+
+  function getLookupMatchContext(member, relatedProfileIds, memberMatches, publicProfiles) {
+    const activeMatch = memberMatches
+      .slice()
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))[0];
+    if (!activeMatch) return null;
+
+    const myProfileId = relatedProfileIds.find((id) =>
+      [activeMatch.maleId, activeMatch.femaleId, activeMatch.maleProfileId, activeMatch.femaleProfileId].includes(id)
+    ) || relatedProfileIds[0] || '';
+
+    const isMaleSide = myProfileId && (activeMatch.maleId === myProfileId || activeMatch.maleProfileId === myProfileId)
+      || (member?.id && activeMatch.maleMemberId === member.id);
+    const isFemaleSide = myProfileId && (activeMatch.femaleId === myProfileId || activeMatch.femaleProfileId === myProfileId)
+      || (member?.id && activeMatch.femaleMemberId === member.id);
+
+    const selfRole = isMaleSide ? 'male' : isFemaleSide ? 'female' : '';
+    const counterpartProfileId = selfRole === 'male'
+      ? (activeMatch.femaleId || activeMatch.femaleProfileId || '')
+      : selfRole === 'female'
+        ? (activeMatch.maleId || activeMatch.maleProfileId || '')
+        : '';
+    const counterpartProfile = publicProfiles.find((profile) => profile.id === counterpartProfileId) || null;
+
+    const selfAccepted = selfRole === 'male'
+      ? !!activeMatch.maleAccepted
+      : selfRole === 'female'
+        ? !!activeMatch.femaleAccepted
+        : false;
+
+    const counterpartAccepted = selfRole === 'male'
+      ? !!activeMatch.femaleAccepted
+      : selfRole === 'female'
+        ? !!activeMatch.maleAccepted
+        : false;
+
+    return {
+      match: activeMatch,
+      selfRole,
+      selfAccepted,
+      counterpartAccepted,
+      counterpartProfile,
+      counterpartProfileId
+    };
+  }
+
+  function getLookupCounterpartMarkup(status, matchContext) {
+    const counterpart = matchContext?.counterpartProfile;
+    if (!counterpart || !['matching','awaiting_other','matched','revealed'].includes(status)) return '';
+
+    const summaryParts = [
+      counterpart.age ? `${counterpart.age}세` : '',
+      counterpart.location || counterpart.region || '',
+      counterpart.mbti || ''
+    ].filter(Boolean);
+
+    const contactLine = status === 'revealed'
+      ? `<div class="lookup-match-job" style="margin-top:10px;font-weight:700;color:var(--ink);">연락처 · ${matchContext.selfRole === 'male' ? (matchContext.match?.femaleContact || '미등록') : (matchContext.match?.maleContact || '미등록')}</div>`
+      : '';
+
+    const note = status === 'revealed'
+      ? '서로 최종 수락이 완료되어 연락처가 즉시 공개되었어요.'
+      : '연결 직후에는 나이, 지역, MBTI, 직업까지만 공개돼요.';
+
+    return `
+      <div class="lookup-match-preview">
+        <h4>연결된 프로필</h4>
+        <div class="lookup-match-summary">${summaryParts.join(' · ')}</div>
+        <div class="lookup-match-job">${[counterpart.job || '', counterpart.height ? `${counterpart.height}cm` : ''].filter(Boolean).join(' · ')}</div>
+        ${contactLine}
+        <div class="lookup-accept-note" style="margin-top:10px;">${note}</div>
+      </div>
+    `;
+  }
+
+  function getLookupAcceptMarkup(status, matchContext) {
+    if (!matchContext?.match || !matchContext?.selfRole) return '';
+    if (status === 'revealed') return '';
+    if (matchContext.selfAccepted) {
+      return `<div class="lookup-accept-wrap"><div class="lookup-accept-note">수락 완료. 상대방도 수락하면 즉시 연락처가 공개됩니다.</div></div>`;
+    }
+    return `
+      <div class="lookup-accept-wrap">
+        <button class="submit-mini" style="width:auto;padding:12px 22px;" onclick="acceptMyMatch('${matchContext.match.id}','${matchContext.selfRole}')">수락하기</button>
+        <div class="lookup-accept-note">수락하면 되돌릴 수 없고, 서로 모두 수락하는 순간 바로 연락처가 공유돼요.</div>
+      </div>
+    `;
+  }
+
+  async function lookupApplicationStatus(event) {
+    if (event) event.preventDefault();
+    const name = document.getElementById('lookupName').value.trim();
+    const contact = document.getElementById('lookupContact').value.trim();
+    const resultBox = document.getElementById('lookupResult');
+
+    if (!name || !contact) {
+      showToast('이름과 연락처를 모두 입력해주세요.');
+      return;
+    }
+
+    const normalizedContact = normalizeContact(contact);
+    const applications = await loadCollectionItems('applications');
+    const matchedApplications = applications
+      .filter((item) => (item.name || '').trim() === name && (item.contactNormalized || normalizeContact(item.contact || '')) === normalizedContact)
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+    if (!matchedApplications.length) {
+      const content = getLookupStatusContent('not_found');
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `<div style="font-size:12px;color:var(--muted);margin-bottom:6px;">현재 상태</div><div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--ink);letter-spacing:1px;">${content.label}</div><div style="font-size:14px;color:var(--text);line-height:1.8;margin-top:8px;">${content.desc}</div>`;
+      return;
+    }
+
+    const application = matchedApplications[0];
+    const members = await loadCollectionItems('members');
+    const publicProfiles = await loadCollectionItems('publicProfiles');
+    const matches = await loadCollectionItems('matches');
+
+    const member = members.find((item) => item.id === application.memberId)
+      || members.find((item) => item.applicationId === application.id)
+      || members.find((item) => (item.realName || '').trim() === name && (item.contactNormalized || normalizeContact(item.contact || '')) === normalizedContact);
+
+    const relatedProfileIds = member
+      ? publicProfiles
+          .filter((profile) => profile.memberId === member.id)
+          .map((profile) => profile.id)
+      : [];
+
+    const memberMatches = matches.filter((match) => {
+      const directMemberMatch = member && (
+        match.maleMemberId === member.id ||
+        match.femaleMemberId === member.id ||
+        Array.isArray(match.memberIds) && match.memberIds.includes(member.id)
+      );
+
+      const publicProfileMatch = relatedProfileIds.length > 0 && (
+        relatedProfileIds.includes(match.maleId) ||
+        relatedProfileIds.includes(match.femaleId) ||
+        relatedProfileIds.includes(match.maleProfileId) ||
+        relatedProfileIds.includes(match.femaleProfileId)
+      );
+
+      return directMemberMatch || publicProfileMatch;
+    });
+
+    const matchContext = getLookupMatchContext(member, relatedProfileIds, memberMatches, publicProfiles);
+    const status = getApplicantLookupStatus(application, member, memberMatches, matchContext);
+    const content = getLookupStatusContent(status, application, memberMatches, matchContext);
+    const counterpartMarkup = getLookupCounterpartMarkup(status, matchContext);
+    const acceptMarkup = getLookupAcceptMarkup(status, matchContext);
+
+    resultBox.style.display = 'block';
+    resultBox.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <div>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">현재 상태</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--ink);letter-spacing:1px;line-height:1;">${content.label}</div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);">${content.meta || ''}</div>
+      </div>
+      <div style="font-size:14px;color:var(--text);line-height:1.85;margin-top:12px;">${content.desc}</div>
+      ${counterpartMarkup}
+      ${acceptMarkup}
+    `;
+  }
+
+  async function acceptMyMatch(matchId, selfRole) {
+    try {
+      const matches = await loadCollectionItems('matches');
+      const match = matches.find((item) => item.id === matchId);
+      if (!match) return showToast('매칭 정보를 찾지 못했어요.');
+
+      const updatePayload = { updatedAt: Date.now() };
+      if (selfRole === 'male') updatePayload.maleAccepted = true;
+      if (selfRole === 'female') updatePayload.femaleAccepted = true;
+
+      const nextMaleAccepted = selfRole === 'male' ? true : !!match.maleAccepted;
+      const nextFemaleAccepted = selfRole === 'female' ? true : !!match.femaleAccepted;
+      const nextStatus = nextMaleAccepted && nextFemaleAccepted ? 'revealed' : 'partial_accepted';
+      updatePayload.status = nextStatus;
+      if (nextStatus === 'revealed') {
+        updatePayload.revealedAt = Date.now();
+        updatePayload.revealedContact = true;
+      }
+
+      await updateItem('matches', matchId, updatePayload);
+
+      const members = await loadCollectionItems('members');
+      const applications = await loadCollectionItems('applications');
+      const touchTargets = [
+        { memberId: match.maleMemberId, applicationId: '', accepted: nextMaleAccepted },
+        { memberId: match.femaleMemberId, applicationId: '', accepted: nextFemaleAccepted }
+      ];
+
+      for (const target of touchTargets) {
+        if (target.memberId) {
+          const memberDoc = members.find((item) => item.id === target.memberId);
+          if (memberDoc?.id) {
+            await updateItem('members', memberDoc.id, {
+              matchStatus: nextStatus,
+              matchId,
+              selfAccepted: target.accepted,
+              updatedAt: Date.now()
+            });
+            const appDoc = applications.find((item) => item.id === memberDoc.applicationId) || applications.find((item) => item.memberId === memberDoc.id);
+            if (appDoc?.id) {
+              await updateItem('applications', appDoc.id, {
+                matchStatus: nextStatus,
+                matchId,
+                selfAccepted: target.accepted,
+                updatedAt: Date.now()
+              });
+            }
+          }
+        }
+      }
+
+      showToast(nextStatus === 'revealed' ? '양측 수락이 완료되어 연락처가 공개되었어요.' : '수락이 완료되었어요. 상대방 수락을 기다리는 중입니다.');
+      await lookupApplicationStatus();
+      if (isAdmin()) await loadMatchAdminList();
+    } catch (error) {
+      console.error(error);
+      showToast('수락 처리 중 오류가 발생했어요.');
+    }
+  }
+
+  async function loadMatches() {
+
+    const matches = await loadCollectionItems('matches');
+    return matches.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+  }
+
+  function getStatusLabel(status) {
+    return ({ proposed:'제안됨', partial_accepted:'한쪽 수락', accepted:'동의 완료', revealed:'연락처 공개', closed:'종료' })[status] || status;
+  }
+
+  function statusBadgeHTML(status) {
+    const map = {
+      proposed:'background:var(--lime-bg);color:#3a7000;border:1px solid #c6f07a;',
+      partial_accepted:'background:#fff8e8;color:#8c6500;border:1px solid #f2d78d;',
+      accepted:'background:#eef6ff;color:#2f6cc7;border:1px solid #bfd7ff;',
+      revealed:'background:var(--pink-bg);color:#cc2060;border:1px solid #ffb3ce;',
+      closed:'background:#f3f3f3;color:#666;border:1px solid #ddd;'
+    };
+    return `<span class="chip" style="${map[status] || map.proposed}">${getStatusLabel(status)}</span>`;
+  }
+
+  async function loadMatchAdminList() {
+    const matches = await loadMatches();
+    const counts = { proposed:0, partial_accepted:0, accepted:0, revealed:0, closed:0 };
+    matches.forEach((m)=>counts[m.status || 'proposed'] = (counts[m.status || 'proposed'] || 0) + 1);
+    document.getElementById('matchProposedCount').textContent = counts.proposed || 0;
+    document.getElementById('matchAcceptedCount').textContent = (counts.partial_accepted || 0) + (counts.accepted || 0);
+    document.getElementById('matchRevealedCount').textContent = counts.revealed || 0;
+    document.getElementById('matchClosedCount').textContent = counts.closed || 0;
+    const list = document.getElementById('matchList');
+    if (!matches.length) {
+      list.innerHTML = '<div class="match-hint">아직 등록된 매칭이 없습니다. 공개 카드에서 “매칭 제안” 버튼을 눌러 시작하세요.</div>';
+      return;
+    }
+    list.innerHTML = matches.map((match) => {
+      const showContacts = match.status === 'revealed' || match.status === 'closed';
+      return `
+        <div class="match-admin-item">
+          <div class="match-admin-head">
+            <div>
+              <div class="match-admin-title">${match.femaleName || '여성'} × ${match.maleName || '남성'}</div>
+              <div class="match-admin-sub">${new Date(match.createdAt || Date.now()).toLocaleDateString('ko-KR')}</div>
+            </div>
+            ${statusBadgeHTML(match.status || 'proposed')}
+          </div>
+          <div class="match-meta-row"><span class="ptag">${match.femaleRegion || '여성 지역 미입력'}</span><span class="ptag">${match.maleRegion || '남성 지역 미입력'}</span></div>
+          ${showContacts ? `<div class="match-contact-grid">
+            <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;"><div style="font-size:12px;color:var(--muted);margin-bottom:6px;">남성 연락처</div><div style="font-size:13px;color:var(--ink);font-weight:600;">${match.maleContact || '미등록'}</div></div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;"><div style="font-size:12px;color:var(--muted);margin-bottom:6px;">여성 연락처</div><div style="font-size:13px;color:var(--ink);font-weight:600;">${match.femaleContact || '미등록'}</div></div>
+          </div>` : ''}
+          <div class="match-actions">
+            ${(match.status || 'proposed') !== 'closed' ? `<button class="secondary" onclick="updateMatchStatus('${match.id}', 'closed')">종료 처리</button>` : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function closeMatchModal() {
+    document.getElementById('matchModal').classList.remove('show');
+  }
+
+  async function openMatchModal(publicProfileId) {
+    if (!isAdmin()) return;
+    const profiles = await loadCollectionItems('publicProfiles');
+    const source = profiles.find((item) => item.id === publicProfileId);
+    if (!source) return showToast('공개 프로필을 찾지 못했어요.');
+    const oppositeGender = source.gender === '남성' ? '여성' : '남성';
+    const candidates = profiles.filter((item) => item.id !== publicProfileId && item.gender === oppositeGender && item.isVisible !== false);
+    const body = document.getElementById('matchModalBody');
+
+    if (!candidates.length) {
+      body.innerHTML = `<div style="font-size:15px;color:var(--ink);font-weight:700;">${source.displayName} 님과 연결할 ${oppositeGender} 공개 카드가 아직 없어요.</div>`;
+      document.getElementById('matchModal').classList.add('show');
+      return;
+    }
+
+    body.innerHTML = `
+      <div style="font-size:15px;color:var(--ink);font-weight:700;">${source.displayName} 님과 연결할 ${oppositeGender} 프로필을 선택하세요.</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:6px;">매칭은 공개 카드끼리 진행되지만 연락처는 실제 회원 정보에서 가져옵니다.</div>
+      <div class="match-candidate-list">
+        ${candidates.map((candidate) => `
+          <div class="match-card-mini">
+            <div class="pcard-top" style="background:${candidate.bgColor};color:${candidate.textColor};">
+              ${getPhotoMarkup(candidate, candidate.displayName)}
+              <div class="pcard-top-overlay">
+                <div class="pcard-chips"><span class="chip chip-w">${candidate.gender}</span>${candidate.badge ? `<span class="chip ${candidate.badge === 'NEW' ? 'chip-l' : 'chip-p'}">${candidate.badge}</span>` : ''}</div>
+                <div class="pcard-meta"><div class="pcard-name-big">${candidate.displayName}</div><div class="pcard-age">${candidate.age}세</div></div>
+              </div>
+            </div>
+            <div class="pcard-body">
+              <div class="pcard-job">${[candidate.job, candidate.location || '지역 미입력', candidate.height ? `${candidate.height}cm` : '', candidate.mbti || ''].filter(Boolean).join(' · ')}</div>
+              <div class="pcard-tags">${(candidate.tags || '').split(',').filter(Boolean).map(tag => `<span class="ptag">${tag.trim()}</span>`).join('')}</div>
+              <button class="btn-match" style="margin-top:8px;width:100%;" onclick="createMatch('${source.id}','${candidate.id}')">이 조합으로 제안</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    document.getElementById('matchModal').classList.add('show');
+  }
+
+  async function createMatch(sourceId, targetId) {
+    const profiles = await loadCollectionItems('publicProfiles');
+    const members = await loadCollectionItems('members');
+    const applications = await loadCollectionItems('applications');
+    const source = profiles.find((item) => item.id === sourceId);
+    const target = profiles.find((item) => item.id === targetId);
+    if (!source || !target) return showToast('매칭할 공개 카드를 찾을 수 없어요.');
+    const existing = await loadMatches();
+    if (existing.some((match) => ((match.maleId === sourceId || match.maleId === targetId) && (match.femaleId === sourceId || match.femaleId === targetId) && (match.status || 'proposed') !== 'closed'))) {
+      return showToast('이미 진행 중인 매칭 조합이에요.');
+    }
+
+    const maleProfile = source.gender === '남성' ? source : target;
+    const femaleProfile = source.gender === '여성' ? source : target;
+    const maleMember = members.find((member) => member.id === maleProfile.memberId);
+    const femaleMember = members.find((member) => member.id === femaleProfile.memberId);
+
+    const now = Date.now();
+    const matchData = {
+      maleId: maleProfile.id,
+      femaleId: femaleProfile.id,
+      maleProfileId: maleProfile.id,
+      femaleProfileId: femaleProfile.id,
+      maleMemberId: maleMember?.id || '',
+      femaleMemberId: femaleMember?.id || '',
+      memberIds: [maleMember?.id, femaleMember?.id].filter(Boolean),
+      maleName: maleProfile.displayName,
+      femaleName: femaleProfile.displayName,
+      maleContact: maleMember?.contact || maleProfile.contact || '',
+      femaleContact: femaleMember?.contact || femaleProfile.contact || '',
+      maleRegion: maleProfile.location || '',
+      femaleRegion: femaleProfile.location || '',
+      status: 'proposed',
+      maleAccepted: false,
+      femaleAccepted: false,
+      createdAt: now,
+      revealedAt: null
+    };
+    const savedMatch = await upsertItem('matches', matchData);
+
+    const updatePromises = [];
+    const syncMemberMatch = (member, otherProfile) => {
+      if (!member?.id) return;
+      updatePromises.push(updateItem('members', member.id, {
+        matchStatus: 'proposed',
+        matchId: savedMatch.id,
+        matchedProfileId: otherProfile?.id || '',
+        matchedProfileName: otherProfile?.displayName || '',
+        matchedAt: now,
+        selfAccepted: false,
+        updatedAt: now
+      }));
+
+      const application = applications.find((item) => item.id === member.applicationId)
+        || applications.find((item) => item.memberId === member.id)
+        || applications.find((item) => (item.contactNormalized || normalizeContact(item.contact || '')) === (member.contactNormalized || normalizeContact(member.contact || '')) && (item.name || '').trim() === (member.realName || '').trim());
+
+      if (application?.id) {
+        updatePromises.push(updateItem('applications', application.id, {
+          matchStatus: 'proposed',
+          matchId: savedMatch.id,
+          matchedProfileId: otherProfile?.id || '',
+          matchedProfileName: otherProfile?.displayName || '',
+          matchedAt: now,
+          selfAccepted: false,
+          memberId: member.id,
+          updatedAt: now
+        }));
+      }
+    };
+
+    syncMemberMatch(maleMember, femaleProfile);
+    syncMemberMatch(femaleMember, maleProfile);
+
+    await Promise.all(updatePromises);
+    closeMatchModal();
+    showToast('매칭 제안이 등록되었습니다. 이제 양쪽 모두 내 신청 조회에서 상대 요약과 수락 버튼을 볼 수 있어요.');
+    await loadMatchAdminList();
+  }
+
+  async function updateMatchStatus(matchId, status) {
+    await updateItem('matches', matchId, { status });
+    showToast(`매칭 상태를 ${getStatusLabel(status)}(으)로 변경했어요.`);
+    await loadMatchAdminList();
+  }
+
+  async function revealMatchContact(matchId) {
+    await updateItem('matches', matchId, { status: 'revealed', revealedAt: Date.now(), revealedContact: true });
+    showToast('연락처 공개 상태로 변경되었습니다.');
+    await loadMatchAdminList();
+  }
+
+  async function incrementMatchCount() {
+    const currentCount = parseInt(localStorage.getItem('successfulMatches') || '3', 10);
+    localStorage.setItem('successfulMatches', String(currentCount + 1));
+    await updateStats();
+    showToast(`매칭 성공 수를 ${currentCount + 1}쌍으로 업데이트했습니다!`);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, index) => {
+      setTimeout(() => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0) scale(1)';
+        }
+      }, index * 150);
+    });
+  }, { threshold: 0.1, rootMargin: '50px' });
+
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+  }
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    seedLocalData();
+    await loadPublicProfiles();
+    await renderHeroTicker();
+    loadApprovedReviews();
+    await updateStats();
+    syncAdminUI();
+    startFirebaseAuthWatcher();
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px) scale(0.95)';
+      el.style.transition = 'opacity 1s ease, transform 1s ease';
+      observer.observe(el);
+      if (isElementInViewport(el)) {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0) scale(1)';
+        }, 100);
+      }
+    });
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    document.querySelectorAll('.pcard').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const inside = e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
+      if (!inside || window.innerWidth < 769) return;
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const rx = ((e.clientY - cy) / rect.height) * -6;
+      const ry = ((e.clientX - cx) / rect.width) * 6;
+      card.style.transform = `translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+  });
+
+  document.addEventListener('mouseleave', () => {
+    document.querySelectorAll('.pcard').forEach(card => card.style.transform = '');
+  });
+
+  document.querySelectorAll('.btn-primary, .btn-outline, .submit-mini, .nav-btn').forEach(btn => {
+    btn.addEventListener('mousedown', () => btn.style.transform = 'translateY(0) scale(0.985)');
+    btn.addEventListener('mouseup', () => btn.style.transform = '');
+    btn.addEventListener('mouseleave', () => btn.style.transform = '');
+  });
+</script>
+
+</body>
+</html>
